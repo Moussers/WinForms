@@ -17,6 +17,12 @@ namespace Clock
             InitializeComponent();
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = new Point
+                (
+                Screen.PrimaryScreen.Bounds.X,
+                Screen.PrimaryScreen.Bounds.Y
+                );
         }
         void SetVisible(bool visible) 
         {
@@ -54,7 +60,6 @@ namespace Clock
         {
             SetVisible(true);
         }
-
         private void notifyIcon_DoubleClick(object sender, EventArgs e)
         {
             this.TopMost = true;
