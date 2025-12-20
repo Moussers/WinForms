@@ -87,5 +87,16 @@ namespace Clock
                 ContextMenu.Show(this, e.Location);
             }
         }
+
+        private void SetTime_Click(object sender, EventArgs e)
+        {
+            InsideTimeMenu timeMenu = new InsideTimeMenu();
+            timeMenu.Show();
+        }
+
+        private void closePopUpMenu_Click(object sender, EventArgs e)
+        {
+            ContextMenu.Close();
+        }
     }
 }

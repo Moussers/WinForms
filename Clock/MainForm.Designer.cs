@@ -40,6 +40,8 @@
             this.startTime = new System.Windows.Forms.ToolStripMenuItem();
             this.stopTime = new System.Windows.Forms.ToolStripMenuItem();
             this.restartMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.SetTime = new System.Windows.Forms.ToolStripMenuItem();
+            this.closePopUpMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.ContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -105,9 +107,11 @@
             this.ContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.startTime,
             this.stopTime,
-            this.restartMenu});
+            this.restartMenu,
+            this.SetTime,
+            this.closePopUpMenu});
             this.ContextMenu.Name = "contextMenuStrip1";
-            this.ContextMenu.Size = new System.Drawing.Size(181, 92);
+            this.ContextMenu.Size = new System.Drawing.Size(181, 136);
             this.ContextMenu.Text = "Контекстное меню";
             this.ContextMenu.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ContextMenu_MouseClick);
             // 
@@ -131,6 +135,20 @@
             this.restartMenu.Size = new System.Drawing.Size(180, 22);
             this.restartMenu.Text = "Обновить время";
             this.restartMenu.Click += new System.EventHandler(this.restartMenu_Click);
+            // 
+            // SetTime
+            // 
+            this.SetTime.Name = "SetTime";
+            this.SetTime.Size = new System.Drawing.Size(180, 22);
+            this.SetTime.Text = "Установить время";
+            this.SetTime.Click += new System.EventHandler(this.SetTime_Click);
+            // 
+            // closePopUpMenu
+            // 
+            this.closePopUpMenu.Name = "closePopUpMenu";
+            this.closePopUpMenu.Size = new System.Drawing.Size(180, 22);
+            this.closePopUpMenu.Text = "Закрыть";
+            this.closePopUpMenu.Click += new System.EventHandler(this.closePopUpMenu_Click);
             // 
             // MainForm
             // 
@@ -167,6 +185,8 @@
         private System.Windows.Forms.ToolStripMenuItem startTime;
         private System.Windows.Forms.ToolStripMenuItem stopTime;
         private System.Windows.Forms.ToolStripMenuItem restartMenu;
+        private System.Windows.Forms.ToolStripMenuItem SetTime;
+        private System.Windows.Forms.ToolStripMenuItem closePopUpMenu;
     }
 }
 
