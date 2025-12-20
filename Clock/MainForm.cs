@@ -23,6 +23,7 @@ namespace Clock
                 Screen.PrimaryScreen.Bounds.X,
                 Screen.PrimaryScreen.Bounds.Y
                 );
+            this.MouseClick += ContextMenu_MouseClick;
         }
         void SetVisible(bool visible) 
         {
@@ -64,6 +65,27 @@ namespace Clock
         {
             this.TopMost = true;
             this.TopMost = false;
+        }
+        private void startTime_Click(object sender, EventArgs e)
+        {
+            timer.Start();
+        }
+
+        private void stopTime_Click(object sender, EventArgs e)
+        {
+            timer.Stop();
+        }
+
+        private void restartMenu_Click(object sender, EventArgs e)
+        {
+            labelTime.Text = DateTime.Now.ToString();
+        }
+        private void ContextMenu_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right) 
+            {
+                ContextMenu.Show(this, e.Location);
+            }
         }
     }
 }

@@ -36,6 +36,11 @@
             this.cbShowWeelDay = new System.Windows.Forms.CheckBox();
             this.btnHideControls = new System.Windows.Forms.Button();
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.ContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.startTime = new System.Windows.Forms.ToolStripMenuItem();
+            this.stopTime = new System.Windows.Forms.ToolStripMenuItem();
+            this.restartMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.ContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelTime
@@ -43,7 +48,7 @@
             this.labelTime.AutoSize = true;
             this.labelTime.BackColor = System.Drawing.SystemColors.Highlight;
             this.labelTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 32.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelTime.Location = new System.Drawing.Point(12, 10);
+            this.labelTime.Location = new System.Drawing.Point(12, 9);
             this.labelTime.Name = "labelTime";
             this.labelTime.Size = new System.Drawing.Size(261, 51);
             this.labelTime.TabIndex = 0;
@@ -79,10 +84,10 @@
             // 
             // btnHideControls
             // 
-            this.btnHideControls.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnHideControls.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnHideControls.Location = new System.Drawing.Point(21, 280);
             this.btnHideControls.Name = "btnHideControls";
-            this.btnHideControls.Size = new System.Drawing.Size(262, 90);
+            this.btnHideControls.Size = new System.Drawing.Size(226, 74);
             this.btnHideControls.TabIndex = 3;
             this.btnHideControls.Text = "Hide controls";
             this.btnHideControls.UseVisualStyleBackColor = true;
@@ -94,6 +99,38 @@
             this.notifyIcon.Text = "System tray";
             this.notifyIcon.Visible = true;
             this.notifyIcon.DoubleClick += new System.EventHandler(this.notifyIcon_DoubleClick);
+            // 
+            // ContextMenu
+            // 
+            this.ContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.startTime,
+            this.stopTime,
+            this.restartMenu});
+            this.ContextMenu.Name = "contextMenuStrip1";
+            this.ContextMenu.Size = new System.Drawing.Size(181, 92);
+            this.ContextMenu.Text = "Контекстное меню";
+            this.ContextMenu.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ContextMenu_MouseClick);
+            // 
+            // startTime
+            // 
+            this.startTime.Name = "startTime";
+            this.startTime.Size = new System.Drawing.Size(180, 22);
+            this.startTime.Text = "Запустить время";
+            this.startTime.Click += new System.EventHandler(this.startTime_Click);
+            // 
+            // stopTime
+            // 
+            this.stopTime.Name = "stopTime";
+            this.stopTime.Size = new System.Drawing.Size(180, 22);
+            this.stopTime.Text = "Остановить время";
+            this.stopTime.Click += new System.EventHandler(this.stopTime_Click);
+            // 
+            // restartMenu
+            // 
+            this.restartMenu.Name = "restartMenu";
+            this.restartMenu.Size = new System.Drawing.Size(180, 22);
+            this.restartMenu.Text = "Обновить время";
+            this.restartMenu.Click += new System.EventHandler(this.restartMenu_Click);
             // 
             // MainForm
             // 
@@ -112,6 +149,7 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "ClockPV_521";
+            this.ContextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -125,6 +163,10 @@
         private System.Windows.Forms.CheckBox cbShowWeelDay;
         private System.Windows.Forms.Button btnHideControls;
         private System.Windows.Forms.NotifyIcon notifyIcon;
+        private System.Windows.Forms.ContextMenuStrip ContextMenu;
+        private System.Windows.Forms.ToolStripMenuItem startTime;
+        private System.Windows.Forms.ToolStripMenuItem stopTime;
+        private System.Windows.Forms.ToolStripMenuItem restartMenu;
     }
 }
 
