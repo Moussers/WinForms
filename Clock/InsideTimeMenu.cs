@@ -12,13 +12,16 @@ namespace Clock
 {
     public partial class InsideTimeMenu : Form
     {
+        public int SetHours { get; private set; }
+        public int SetMinutes { get; private set; }
+        public int SetSeconds { get; private set; }
         public InsideTimeMenu()
         {
             InitializeComponent();
         }
-
         private void okey_Click(object sender, EventArgs e)
         {
+            ErrorForm errorForm = new ErrorForm();
             int takeHours, takeMinutes, takeSeconds; 
             try
             {
@@ -27,7 +30,8 @@ namespace Clock
             catch (Exception error) 
             {
                 fieldHours.Text = "";
-                errorField.Text = "Была введена строка в поле <Часы>";
+                //errorField.Text = "Была введена строка в поле <Часы>";
+                errorForm.Show();
                 return;
             }
             try
@@ -37,7 +41,8 @@ namespace Clock
             catch (Exception error) 
             {
                 fieldMinutes.Text = "";
-                errorField.Text = "Была введена строка в поле <Минуты>";
+                //errorField.Text = "Была введена строка в поле <Минуты>";
+                errorForm.Show();
                 return;
             }
             try
@@ -47,7 +52,8 @@ namespace Clock
             catch (Exception error) 
             {
                 fieldSeconds.Text = "";
-                errorField.Text = "Была введена строка в поле <Секунды>";
+                //errorField.Text = "Была введена строка в поле <Секунды>";
+                errorForm.Show();
                 return;
             }
             if (takeHours < 0)
@@ -74,9 +80,17 @@ namespace Clock
             takeHours += takeMinutes % 60;
             takeMinutes %= 60;
             takeHours %= 24;
+            this.SetHours = takeHours;
+            this.SetMinutes = takeMinutes;
+            this.SetMinutes = takeSeconds;
+            MainForm mForms = new MainForm();
+            mForms.updateTime();
+            this.Close();
+        }
 
-            MainForm mForm = new MainForm();
-            //mForm.
+        private void goBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

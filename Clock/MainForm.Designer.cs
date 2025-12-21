@@ -33,7 +33,7 @@
             this.labelTime = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.cbShowDate = new System.Windows.Forms.CheckBox();
-            this.cbShowWeelDay = new System.Windows.Forms.CheckBox();
+            this.cbShowWeekDay = new System.Windows.Forms.CheckBox();
             this.btnHideControls = new System.Windows.Forms.Button();
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.ContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -73,16 +73,16 @@
             this.cbShowDate.Text = "Показать дату";
             this.cbShowDate.UseVisualStyleBackColor = true;
             // 
-            // cbShowWeelDay
+            // cbShowWeekDay
             // 
-            this.cbShowWeelDay.AutoSize = true;
-            this.cbShowWeelDay.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.cbShowWeelDay.Location = new System.Drawing.Point(21, 230);
-            this.cbShowWeelDay.Name = "cbShowWeelDay";
-            this.cbShowWeelDay.Size = new System.Drawing.Size(234, 28);
-            this.cbShowWeelDay.TabIndex = 2;
-            this.cbShowWeelDay.Text = "Показать день недели";
-            this.cbShowWeelDay.UseVisualStyleBackColor = true;
+            this.cbShowWeekDay.AutoSize = true;
+            this.cbShowWeekDay.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.cbShowWeekDay.Location = new System.Drawing.Point(21, 230);
+            this.cbShowWeekDay.Name = "cbShowWeekDay";
+            this.cbShowWeekDay.Size = new System.Drawing.Size(234, 28);
+            this.cbShowWeekDay.TabIndex = 2;
+            this.cbShowWeekDay.Text = "Показать день недели";
+            this.cbShowWeekDay.UseVisualStyleBackColor = true;
             // 
             // btnHideControls
             // 
@@ -111,42 +111,42 @@
             this.SetTime,
             this.closePopUpMenu});
             this.ContextMenu.Name = "contextMenuStrip1";
-            this.ContextMenu.Size = new System.Drawing.Size(181, 136);
+            this.ContextMenu.Size = new System.Drawing.Size(176, 114);
             this.ContextMenu.Text = "Контекстное меню";
             this.ContextMenu.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ContextMenu_MouseClick);
             // 
             // startTime
             // 
             this.startTime.Name = "startTime";
-            this.startTime.Size = new System.Drawing.Size(180, 22);
+            this.startTime.Size = new System.Drawing.Size(175, 22);
             this.startTime.Text = "Запустить время";
             this.startTime.Click += new System.EventHandler(this.startTime_Click);
             // 
             // stopTime
             // 
             this.stopTime.Name = "stopTime";
-            this.stopTime.Size = new System.Drawing.Size(180, 22);
+            this.stopTime.Size = new System.Drawing.Size(175, 22);
             this.stopTime.Text = "Остановить время";
             this.stopTime.Click += new System.EventHandler(this.stopTime_Click);
             // 
             // restartMenu
             // 
             this.restartMenu.Name = "restartMenu";
-            this.restartMenu.Size = new System.Drawing.Size(180, 22);
+            this.restartMenu.Size = new System.Drawing.Size(175, 22);
             this.restartMenu.Text = "Обновить время";
             this.restartMenu.Click += new System.EventHandler(this.restartMenu_Click);
             // 
             // SetTime
             // 
             this.SetTime.Name = "SetTime";
-            this.SetTime.Size = new System.Drawing.Size(180, 22);
+            this.SetTime.Size = new System.Drawing.Size(175, 22);
             this.SetTime.Text = "Установить время";
             this.SetTime.Click += new System.EventHandler(this.SetTime_Click);
             // 
             // closePopUpMenu
             // 
             this.closePopUpMenu.Name = "closePopUpMenu";
-            this.closePopUpMenu.Size = new System.Drawing.Size(180, 22);
+            this.closePopUpMenu.Size = new System.Drawing.Size(175, 22);
             this.closePopUpMenu.Text = "Закрыть";
             this.closePopUpMenu.Click += new System.EventHandler(this.closePopUpMenu_Click);
             // 
@@ -156,7 +156,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(350, 382);
             this.Controls.Add(this.btnHideControls);
-            this.Controls.Add(this.cbShowWeelDay);
+            this.Controls.Add(this.cbShowWeekDay);
             this.Controls.Add(this.cbShowDate);
             this.Controls.Add(this.labelTime);
             this.DoubleBuffered = true;
@@ -178,7 +178,7 @@
         private System.Windows.Forms.Label labelTime;
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.CheckBox cbShowDate;
-        private System.Windows.Forms.CheckBox cbShowWeelDay;
+        private System.Windows.Forms.CheckBox cbShowWeekDay;
         private System.Windows.Forms.Button btnHideControls;
         private System.Windows.Forms.NotifyIcon notifyIcon;
         private System.Windows.Forms.ContextMenuStrip ContextMenu;

@@ -12,8 +12,12 @@ namespace Clock
 {
     public partial class MainForm : Form
     {
+        private int _hours;
+        private int _minutes;
+        private int _seconds;
         public MainForm()
         {
+            
             InitializeComponent();
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -25,10 +29,33 @@ namespace Clock
                 );
             this.MouseClick += ContextMenu_MouseClick;
         }
+        public int Hours
+        {set { _hours = value; }}
+        public int Minutes 
+        {
+            set { _minutes = value; }
+        }
+        public int Seconds 
+        {
+            set { _seconds = value; }
+        }
+        public void updateTime() 
+        {
+            DateTime dateTime = new DateTime
+                (
+                    DateTime.Now.Year,
+                    DateTime.Now.Month,
+                    DateTime.Now.Day,
+                    _hours,
+                    _minutes,
+                    _seconds
+                );
+            labelTime.Text = dateTime.ToString("hh:mm:ss tt");
+        }
         void SetVisible(bool visible) 
         {
             cbShowDate.Visible = visible;
-            cbShowWeelDay.Visible = visible;
+            cbShowWeekDay.Visible = visible;
             btnHideControls.Visible = visible;
             this.ShowInTaskbar = visible;
             this.FormBorderStyle = visible ? FormBorderStyle.FixedSingle: FormBorderStyle.None;
@@ -46,7 +73,7 @@ namespace Clock
                 labelTime.Text += "\n";
                 labelTime.Text += DateTime.Now.ToString("yyyy.MM.dd");
             }
-            if (cbShowWeelDay.Checked) 
+            if (cbShowWeekDay.Checked) 
             {
                 labelTime.Text += $"\n{DateTime.Now.DayOfWeek}";
             }
@@ -91,9 +118,14 @@ namespace Clock
         private void SetTime_Click(object sender, EventArgs e)
         {
             InsideTimeMenu timeMenu = new InsideTimeMenu();
-            timeMenu.Show();
+            if (timeMenu.ShowDialog() == DialogResult.OK) 
+            {
+                this.Hours = timeMenu.SetHours;
+                this.Minutes = timeMenu.SetMinutes;
+                this.Seconds = timeMenu.SetSeconds;
+                timeMenu.Show();
+            } 
         }
-
         private void closePopUpMenu_Click(object sender, EventArgs e)
         {
             ContextMenu.Close();

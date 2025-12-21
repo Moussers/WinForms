@@ -36,7 +36,7 @@
             this.Seconds = new System.Windows.Forms.Label();
             this.fieldSeconds = new System.Windows.Forms.TextBox();
             this.okey = new System.Windows.Forms.Button();
-            this.errorField = new System.Windows.Forms.TextBox();
+            this.goBack = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Hours
@@ -101,19 +101,23 @@
             this.okey.UseVisualStyleBackColor = true;
             this.okey.Click += new System.EventHandler(this.okey_Click);
             // 
-            // errorField
+            // goBack
             // 
-            this.errorField.Location = new System.Drawing.Point(22, 191);
-            this.errorField.Name = "errorField";
-            this.errorField.Size = new System.Drawing.Size(219, 20);
-            this.errorField.TabIndex = 7;
+            this.goBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.goBack.Location = new System.Drawing.Point(285, 191);
+            this.goBack.Name = "goBack";
+            this.goBack.Size = new System.Drawing.Size(75, 30);
+            this.goBack.TabIndex = 8;
+            this.goBack.Text = "Назад";
+            this.goBack.UseVisualStyleBackColor = true;
+            this.goBack.Click += new System.EventHandler(this.goBack_Click);
             // 
             // InsideTimeMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(492, 244);
-            this.Controls.Add(this.errorField);
+            this.Controls.Add(this.goBack);
             this.Controls.Add(this.okey);
             this.Controls.Add(this.fieldSeconds);
             this.Controls.Add(this.Seconds);
@@ -138,6 +142,6 @@
         private System.Windows.Forms.Label Seconds;
         private System.Windows.Forms.TextBox fieldSeconds;
         private System.Windows.Forms.Button okey;
-        private System.Windows.Forms.TextBox errorField;
+        private System.Windows.Forms.Button goBack;
     }
 }
