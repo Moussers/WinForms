@@ -51,10 +51,10 @@
             this.infoAboutError.BackColor = System.Drawing.SystemColors.Control;
             this.infoAboutError.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.infoAboutError.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.infoAboutError.Location = new System.Drawing.Point(118, 35);
+            this.infoAboutError.Location = new System.Drawing.Point(84, 35);
             this.infoAboutError.Multiline = true;
             this.infoAboutError.Name = "infoAboutError";
-            this.infoAboutError.Size = new System.Drawing.Size(226, 53);
+            this.infoAboutError.Size = new System.Drawing.Size(251, 53);
             this.infoAboutError.TabIndex = 2;
             this.infoAboutError.Text = "Веедена строка, а не число";
             // 
@@ -64,7 +64,7 @@
             this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
             this.pictureBox1.Location = new System.Drawing.Point(12, 35);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 63);
+            this.pictureBox1.Size = new System.Drawing.Size(66, 53);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;

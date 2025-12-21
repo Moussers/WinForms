@@ -59,20 +59,20 @@ namespace Clock
             if (takeHours < 0)
             {
                 fieldHours.Text = "";
-                errorField.Text = "Было введено больше 23 или меньше нуля";
+                //errorField.Text = "Было введено больше 23 или меньше нуля";
                 return;
             }
             if (takeMinutes < 0)
             {
                 takeHours += takeHours;
                 fieldMinutes.Text = "";
-                errorField.Text = "Было введено число минут, которое меньше нуля";
+                //errorField.Text = "Было введено число минут, которое меньше нуля";
                 return;
             }
             if (takeSeconds < 0)
             {
                 fieldSeconds.Text = "";
-                errorField.Text = "Было введено число минут, которое меньше нуля";
+                //errorField.Text = "Было введено число минут, которое меньше нуля";
                 return;
             }
             takeMinutes += takeSeconds / 60;
