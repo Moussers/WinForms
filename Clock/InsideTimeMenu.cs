@@ -21,7 +21,7 @@ namespace Clock
         }
         private void okey_Click(object sender, EventArgs e)
         {
-            ErrorForm errorForm = new ErrorForm();
+            string message;
             int takeHours, takeMinutes, takeSeconds; 
             try
             {
@@ -31,6 +31,8 @@ namespace Clock
             {
                 fieldHours.Text = "";
                 //errorField.Text = "Была введена строка в поле <Часы>";
+                message = "Была введена строка в поле <Часы>";
+                StrErrorForm errorForm = new StrErrorForm(message);
                 errorForm.Show();
                 return;
             }
@@ -42,6 +44,8 @@ namespace Clock
             {
                 fieldMinutes.Text = "";
                 //errorField.Text = "Была введена строка в поле <Минуты>";
+                message = "Была введена строка в поле <Минуты>";
+                StrErrorForm errorForm = new StrErrorForm(message);
                 errorForm.Show();
                 return;
             }
@@ -53,26 +57,34 @@ namespace Clock
             {
                 fieldSeconds.Text = "";
                 //errorField.Text = "Была введена строка в поле <Секунды>";
+                message = "Была введена строка в поле <Секунды>";
+                StrErrorForm errorForm = new StrErrorForm(message);
                 errorForm.Show();
                 return;
             }
             if (takeHours < 0)
             {
                 fieldHours.Text = "";
-                //errorField.Text = "Было введено больше 23 или меньше нуля";
+                message = "Было введено число, которое меньше нуля";
+                StrErrorForm errorForm = new StrErrorForm(message);
+                errorForm.Show();
                 return;
             }
             if (takeMinutes < 0)
             {
                 takeHours += takeHours;
                 fieldMinutes.Text = "";
-                //errorField.Text = "Было введено число минут, которое меньше нуля";
+                message = "Было введено число минут, которое меньше нуля";
+                StrErrorForm errorForm = new StrErrorForm(message);
+                errorForm.Show();
                 return;
             }
             if (takeSeconds < 0)
             {
                 fieldSeconds.Text = "";
-                //errorField.Text = "Было введено число минут, которое меньше нуля";
+                message = "Было введено число секунд, которое меньше нуля";
+                StrErrorForm errorForm = new StrErrorForm(message);
+                errorForm.Show();
                 return;
             }
             takeMinutes += takeSeconds / 60;

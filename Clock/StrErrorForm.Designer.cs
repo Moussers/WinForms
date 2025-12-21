@@ -1,6 +1,6 @@
 ﻿namespace Clock
 {
-    partial class ErrorForm
+    partial class StrErrorForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ErrorForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StrErrorForm));
             this.okey = new System.Windows.Forms.Button();
-            this.infoAboutError = new System.Windows.Forms.TextBox();
+            this.strMessError = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -46,17 +46,17 @@
             this.okey.UseVisualStyleBackColor = true;
             this.okey.Click += new System.EventHandler(this.okey_Click);
             // 
-            // infoAboutError
+            // strMessError
             // 
-            this.infoAboutError.BackColor = System.Drawing.SystemColors.Control;
-            this.infoAboutError.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.infoAboutError.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.infoAboutError.Location = new System.Drawing.Point(84, 35);
-            this.infoAboutError.Multiline = true;
-            this.infoAboutError.Name = "infoAboutError";
-            this.infoAboutError.Size = new System.Drawing.Size(251, 53);
-            this.infoAboutError.TabIndex = 2;
-            this.infoAboutError.Text = "Веедена строка, а не число";
+            this.strMessError.BackColor = System.Drawing.SystemColors.Control;
+            this.strMessError.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.strMessError.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.strMessError.Location = new System.Drawing.Point(84, 35);
+            this.strMessError.Multiline = true;
+            this.strMessError.Name = "strMessError";
+            this.strMessError.Size = new System.Drawing.Size(251, 53);
+            this.strMessError.TabIndex = 2;
+            this.strMessError.Text = "Веедена строка, а не число";
             // 
             // pictureBox1
             // 
@@ -69,17 +69,18 @@
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
-            // ErrorForm
+            // StrErrorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(368, 170);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.infoAboutError);
+            this.Controls.Add(this.strMessError);
             this.Controls.Add(this.okey);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "ErrorForm";
+            this.Name = "StrErrorForm";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.StrErrorForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -88,7 +89,7 @@
 
         #endregion
         private System.Windows.Forms.Button okey;
-        private System.Windows.Forms.TextBox infoAboutError;
+        private System.Windows.Forms.TextBox strMessError;
         private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
