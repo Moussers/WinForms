@@ -12,26 +12,14 @@ namespace Clock
 {
     public partial class ErrorForm : Form
     {
-        private string infoMessage;
 
-        public ErrorForm(string strError)
+        public ErrorForm()
         {
             InitializeComponent();
-            Message = strError;
-        }
-        public string Message 
-        {
-            get { return infoMessage; } 
-            private set { infoMessage = value; }
         }
         private void okey_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void StrErrorForm_Load(object sender, EventArgs e)
-        {
-            strMessError.Text = Message;
         }
     }
 }

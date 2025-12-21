@@ -80,7 +80,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "StrErrorForm";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.StrErrorForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -89,7 +88,7 @@
 
         #endregion
         private System.Windows.Forms.Button okey;
-        private System.Windows.Forms.TextBox strMessError;
+        public System.Windows.Forms.TextBox strMessError;
         private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

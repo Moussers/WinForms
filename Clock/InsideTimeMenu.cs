@@ -21,7 +21,7 @@ namespace Clock
         }
         private void okey_Click(object sender, EventArgs e)
         {
-            string message;
+            ErrorForm errorForm = new ErrorForm();
             int takeHours, takeMinutes, takeSeconds; 
             try
             {
@@ -30,9 +30,7 @@ namespace Clock
             catch (Exception error) 
             {
                 fieldHours.Text = "";
-                //errorField.Text = "Была введена строка в поле <Часы>";
-                message = "Была введена строка в поле <Часы>";
-                ErrorForm errorForm = new ErrorForm(message);
+                errorForm.strMessError.Text = "Была введена строка в поле <Часы>";
                 errorForm.Show();
                 return;
             }
@@ -43,9 +41,8 @@ namespace Clock
             catch (Exception error) 
             {
                 fieldMinutes.Text = "";
-                //errorField.Text = "Была введена строка в поле <Минуты>";
-                message = "Была введена строка в поле <Минуты>";
-                ErrorForm errorForm = new ErrorForm(message);
+                //message = "Была введена строка в поле <Минуты>";
+                errorForm.strMessError.Text = "Была введена строка в поле <Минуты>";
                 errorForm.Show();
                 return;
             }
@@ -56,17 +53,16 @@ namespace Clock
             catch (Exception error) 
             {
                 fieldSeconds.Text = "";
-                //errorField.Text = "Была введена строка в поле <Секунды>";
-                message = "Была введена строка в поле <Секунды>";
-                ErrorForm errorForm = new ErrorForm(message);
+                //message = "Была введена строка в поле <Секунды>";
+                errorForm.strMessError.Text = "Была введена строка в поле <Секунды>"; 
                 errorForm.Show();
                 return;
             }
             if (takeHours < 0)
             {
                 fieldHours.Text = "";
-                message = "Было введено число, которое меньше нуля";
-                ErrorForm errorForm = new ErrorForm(message);
+                //message = "Было введено число, которое меньше нуля";
+                errorForm.strMessError.Text = "Было введено число часов, которое меньше нуля";
                 errorForm.Show();
                 return;
             }
@@ -74,16 +70,16 @@ namespace Clock
             {
                 takeHours += takeHours;
                 fieldMinutes.Text = "";
-                message = "Было введено число минут, которое меньше нуля";
-                ErrorForm errorForm = new ErrorForm(message);
+                //message = "Было введено число минут, которое меньше нуля";
+                errorForm.strMessError.Text = "Было введено число минут, которое меньше нуля";
                 errorForm.Show();
                 return;
             }
             if (takeSeconds < 0)
             {
                 fieldSeconds.Text = "";
-                message = "Было введено число секунд, которое меньше нуля";
-                ErrorForm errorForm = new ErrorForm(message);
+                //message = "Было введено число секунд, которое меньше нуля";
+                errorForm.strMessError.Text = "Было введено число секунд, которое меньше нуля";
                 errorForm.Show();
                 return;
             }
