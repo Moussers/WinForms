@@ -32,7 +32,7 @@ namespace Clock
                 fieldHours.Text = "";
                 //errorField.Text = "Была введена строка в поле <Часы>";
                 message = "Была введена строка в поле <Часы>";
-                StrErrorForm errorForm = new StrErrorForm(message);
+                ErrorForm errorForm = new ErrorForm(message);
                 errorForm.Show();
                 return;
             }
@@ -45,7 +45,7 @@ namespace Clock
                 fieldMinutes.Text = "";
                 //errorField.Text = "Была введена строка в поле <Минуты>";
                 message = "Была введена строка в поле <Минуты>";
-                StrErrorForm errorForm = new StrErrorForm(message);
+                ErrorForm errorForm = new ErrorForm(message);
                 errorForm.Show();
                 return;
             }
@@ -58,7 +58,7 @@ namespace Clock
                 fieldSeconds.Text = "";
                 //errorField.Text = "Была введена строка в поле <Секунды>";
                 message = "Была введена строка в поле <Секунды>";
-                StrErrorForm errorForm = new StrErrorForm(message);
+                ErrorForm errorForm = new ErrorForm(message);
                 errorForm.Show();
                 return;
             }
@@ -66,7 +66,7 @@ namespace Clock
             {
                 fieldHours.Text = "";
                 message = "Было введено число, которое меньше нуля";
-                StrErrorForm errorForm = new StrErrorForm(message);
+                ErrorForm errorForm = new ErrorForm(message);
                 errorForm.Show();
                 return;
             }
@@ -75,7 +75,7 @@ namespace Clock
                 takeHours += takeHours;
                 fieldMinutes.Text = "";
                 message = "Было введено число минут, которое меньше нуля";
-                StrErrorForm errorForm = new StrErrorForm(message);
+                ErrorForm errorForm = new ErrorForm(message);
                 errorForm.Show();
                 return;
             }
@@ -83,7 +83,7 @@ namespace Clock
             {
                 fieldSeconds.Text = "";
                 message = "Было введено число секунд, которое меньше нуля";
-                StrErrorForm errorForm = new StrErrorForm(message);
+                ErrorForm errorForm = new ErrorForm(message);
                 errorForm.Show();
                 return;
             }

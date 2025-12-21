@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace Clock
 {
-    public partial class StrErrorForm : Form
+    public partial class ErrorForm : Form
     {
         private string infoMessage;
 
-        public StrErrorForm(string strError)
+        public ErrorForm(string strError)
         {
             InitializeComponent();
             Message = strError;

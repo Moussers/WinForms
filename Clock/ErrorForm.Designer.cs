@@ -1,6 +1,6 @@
 ﻿namespace Clock
 {
-    partial class StrErrorForm
+    partial class ErrorForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StrErrorForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ErrorForm));
             this.okey = new System.Windows.Forms.Button();
             this.strMessError = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -38,7 +38,7 @@
             // okey
             // 
             this.okey.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.okey.Location = new System.Drawing.Point(260, 126);
+            this.okey.Location = new System.Drawing.Point(260, 141);
             this.okey.Name = "okey";
             this.okey.Size = new System.Drawing.Size(75, 26);
             this.okey.TabIndex = 1;
@@ -54,7 +54,7 @@
             this.strMessError.Location = new System.Drawing.Point(84, 35);
             this.strMessError.Multiline = true;
             this.strMessError.Name = "strMessError";
-            this.strMessError.Size = new System.Drawing.Size(251, 53);
+            this.strMessError.Size = new System.Drawing.Size(251, 91);
             this.strMessError.TabIndex = 2;
             this.strMessError.Text = "Веедена строка, а не число";
             // 
@@ -73,7 +73,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(368, 170);
+            this.ClientSize = new System.Drawing.Size(368, 179);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.strMessError);
             this.Controls.Add(this.okey);
