@@ -16,8 +16,7 @@ namespace Clock
         private int _minutes;
         private int _seconds;
         public MainForm()
-        {
-            
+        {            
             InitializeComponent();
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -30,14 +29,19 @@ namespace Clock
             this.MouseClick += ContextMenu_MouseClick;
         }
         public int Hours
-        {set { _hours = value; }}
+        {
+            set { _hours = value; }
+            private get { return _hours; }
+        }
         public int Minutes 
         {
             set { _minutes = value; }
+            private get { return _minutes; }
         }
         public int Seconds 
         {
             set { _seconds = value; }
+            private get { return _seconds; }
         }
         public void updateTime() 
         {
@@ -46,9 +50,9 @@ namespace Clock
                     DateTime.Now.Year,
                     DateTime.Now.Month,
                     DateTime.Now.Day,
-                    _hours,
-                    _minutes,
-                    _seconds
+                    Hours,
+                    Minutes,
+                    Seconds
                 );
             labelTime.Text = dateTime.ToString("hh:mm:ss tt");
         }
@@ -102,7 +106,6 @@ namespace Clock
         {
             timer.Stop();
         }
-
         private void restartMenu_Click(object sender, EventArgs e)
         {
             labelTime.Text = DateTime.Now.ToString();
@@ -114,15 +117,11 @@ namespace Clock
                 ContextMenu.Show(this, e.Location);
             }
         }
-
         private void SetTime_Click(object sender, EventArgs e)
         {
             InsideTimeMenu timeMenu = new InsideTimeMenu();
             if (timeMenu.ShowDialog() == DialogResult.OK) 
             {
-                this.Hours = timeMenu.SetHours;
-                this.Minutes = timeMenu.SetMinutes;
-                this.Seconds = timeMenu.SetSeconds;
                 timeMenu.Show();
             } 
         }

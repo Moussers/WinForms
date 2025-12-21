@@ -12,9 +12,6 @@ namespace Clock
 {
     public partial class InsideTimeMenu : Form
     {
-        public int SetHours { get; private set; }
-        public int SetMinutes { get; private set; }
-        public int SetSeconds { get; private set; }
         public InsideTimeMenu()
         {
             InitializeComponent();
@@ -88,10 +85,13 @@ namespace Clock
             takeHours += takeMinutes % 60;
             takeMinutes %= 60;
             takeHours %= 24;
-            this.SetHours = takeHours;
-            this.SetMinutes = takeMinutes;
-            this.SetMinutes = takeSeconds;
+            //this.SetHours = takeHours;
+            //this.SetMinutes = takeMinutes;
+            //this.SetMinutes = takeSeconds;
             MainForm mForms = new MainForm();
+            mForms.Hours = takeHours;
+            mForms.Minutes = takeMinutes;
+            mForms.Seconds = takeSeconds;
             mForms.updateTime();
             this.Close();
         }
