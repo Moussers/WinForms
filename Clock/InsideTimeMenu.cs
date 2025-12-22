@@ -18,7 +18,6 @@ namespace Clock
         }
         private void okey_Click(object sender, EventArgs e)
         {
-            ErrorForm errorForm = new ErrorForm();
             int takeHours, takeMinutes, takeSeconds; 
             try
             {
@@ -27,8 +26,7 @@ namespace Clock
             catch (Exception error) 
             {
                 fieldHours.Text = "";
-                errorForm.strMessError.Text = "Была введена строка в поле <Часы>";
-                errorForm.Show();
+                MessageBox.Show(this, "Была введена строка в поле <Часы>", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             try
@@ -38,9 +36,7 @@ namespace Clock
             catch (Exception error) 
             {
                 fieldMinutes.Text = "";
-                //message = "Была введена строка в поле <Минуты>";
-                errorForm.strMessError.Text = "Была введена строка в поле <Минуты>";
-                errorForm.Show();
+                MessageBox.Show(this, "Была введена строка в поле <Минуты>", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             try
@@ -50,34 +46,26 @@ namespace Clock
             catch (Exception error) 
             {
                 fieldSeconds.Text = "";
-                //message = "Была введена строка в поле <Секунды>";
-                errorForm.strMessError.Text = "Была введена строка в поле <Секунды>"; 
-                errorForm.Show();
+                MessageBox.Show(this, "Была введена строка в поле <Секунды>", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (takeHours < 0)
             {
                 fieldHours.Text = "";
-                //message = "Было введено число, которое меньше нуля";
-                errorForm.strMessError.Text = "Было введено число часов, которое меньше нуля";
-                errorForm.Show();
+                MessageBox.Show(this, "Было введено число часов, которое меньше нуля", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (takeMinutes < 0)
             {
                 takeHours += takeHours;
                 fieldMinutes.Text = "";
-                //message = "Было введено число минут, которое меньше нуля";
-                errorForm.strMessError.Text = "Было введено число минут, которое меньше нуля";
-                errorForm.Show();
+                MessageBox.Show(this, "Было введено число минут, которое меньше нуля", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (takeSeconds < 0)
             {
                 fieldSeconds.Text = "";
-                //message = "Было введено число секунд, которое меньше нуля";
-                errorForm.strMessError.Text = "Было введено число секунд, которое меньше нуля";
-                errorForm.Show();
+                MessageBox.Show(this, "Было введено число секунд, которое меньше нуля", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             takeMinutes += takeSeconds / 60;

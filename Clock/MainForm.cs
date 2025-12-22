@@ -21,6 +21,7 @@ namespace Clock
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.StartPosition = FormStartPosition.Manual;
+            //int screen
             this.Location = new Point
                 (
                 Screen.PrimaryScreen.Bounds.X,
