@@ -60,5 +60,10 @@ namespace Clock
             this.TopMost = true;
             this.TopMost = false;
         }
+
+        private void showWeekdayeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
