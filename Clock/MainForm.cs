@@ -12,8 +12,6 @@ namespace Clock
 {
     public partial class MainForm : Form
     {
-        private object cbShowWeekday;
-
         public MainForm()
         {
             InitializeComponent();
@@ -23,7 +21,7 @@ namespace Clock
         void SetVisibility(bool visible) 
         {
             cbShowDate.Visible = visible;
-            cbShowWeekda.Visible = visible;
+            cbShowWeekday.Visible = visible;
             btnHideControls.Visible = visible;
             this.ShowInTaskbar = visible;
             this.FormBorderStyle = visible ? FormBorderStyle.FixedSingle: FormBorderStyle.None;
@@ -41,7 +39,7 @@ namespace Clock
                 labelTime.Text += "\n";
                 labelTime.Text += DateTime.Now.ToString("yyyy.MM.dd");
             }
-            if (cbShowWeekda.Checked) 
+            if (cbShowWeekday.Checked) 
             {
                 labelTime.Text += $"\n{DateTime.Now.DayOfWeek}";
             }
@@ -49,7 +47,7 @@ namespace Clock
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            SetVisibility(tsmiShowControls.Checked = false);
+            SetVisibility(false);
         }
 
         //private void labelTime_MouseHover(object sender, EventArgs e)
@@ -78,19 +76,6 @@ namespace Clock
             //Если на элемент окна (Control) воздействует пользователь при помощи клавиатуры или мыши,
             //этот Control отправляет событие своему родителю,
             //а родитель может обрабатывать, или не обрабатывать это событие.
-        }
-
-        private void tsmiShowDate_CheckedChanged(object sender, EventArgs e) => 
-            cbShowDate.Checked = tsmiShowDate.Checked;
-
-        private void cbShowDate_CheckedChanged(object sender, EventArgs e)
-        {
-            tsmiShowDate.Checked = cbShowDate.Checked;
-        }
-
-        private void tsmiShowWeekday_CheckedChanged(object sender, EventArgs e)
-        {
-            cbShowWeekda.Checked = tsmiShowWeekday.Checked;
         }
     }
 }
