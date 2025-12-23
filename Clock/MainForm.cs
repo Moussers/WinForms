@@ -17,6 +17,7 @@ namespace Clock
             InitializeComponent();
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            SetVisibility(false);
         }
         void SetVisibility(bool visible) 
         {
@@ -45,9 +46,9 @@ namespace Clock
             }
             notifyIcon.Text = labelTime.Text;
         }
-        private void button1_Click(object sender, EventArgs e)
+        private void btnHideControls_Click(object sender, EventArgs e)
         {
-            SetVisibility(false);
+            SetVisibility(tsmiShowControls.Checked = false);
         }
 
         //private void labelTime_MouseHover(object sender, EventArgs e)
@@ -64,18 +65,25 @@ namespace Clock
             }
         }
 
-        private void tsmiTopmost_Click(object sender, EventArgs e)
-        {
-            this.TopMost = tsmiTopmost.Checked;
-        }
+        private void tsmiTopmost_Click(object sender, EventArgs e) => this.TopMost = tsmiTopmost.Checked;
 
         private void tsmiShowControls_CheckedChanged(object sender, EventArgs e)
         {
             SetVisibility((sender as ToolStripMenuItem).Checked);
             //Sender - это отправитель события (Control, который прислал событие).
             //Если на элемент окна (Control) воздействует пользователь при помощи клавиатуры или мыши,
-            //этот Control отправляет событие своему родителю,
+            //этот Control отправляет событие своему родителю, 
             //а родитель может обрабатывать, или не обрабатывать это событие.
         }
+
+        private void tsmiShowDate_CheckedChanged(object sender, EventArgs e) => cbShowDate.Checked = tsmiShowDate.Checked;
+
+        private void cbShowDate_CheckedChanged(object sender, EventArgs e) => tsmiShowDate.Checked = cbShowDate.Checked;
+
+        private void tsmiShowWeekday_CheckedChanged(object sender, EventArgs e) => cbShowWeekday.Checked = tsmiShowWeekday.Checked;
+
+        private void cbShowWeekday_CheckedChanged(object sender, EventArgs e) => tsmiShowWeekday.Checked = cbShowWeekday.Checked;
+
+        private void tsmiQuit_Click(object sender, EventArgs e) => this.Close();
     }
 }
