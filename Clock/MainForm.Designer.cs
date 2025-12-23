@@ -43,7 +43,32 @@
             this.tsmiFont = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiColor = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiForegroundColor = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiRedFont = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiBrownFont = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiOrangeFont = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiYellowFont = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiGreenFont = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiGreyFont = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiBlueFont = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiLightBlueFont = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiDarkBlueFont = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiVioletFont = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiBlackFont = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiPinkFont = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiWhiteColor = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiBackgroundColor = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiRedArea = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiBrownArea = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiOrangeArea = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiYellowArea = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiGreenArea = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiGreyArea = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiBlueArea = new System.Windows.Forms.ToolStripMenuItem();
+            this.tmsiLightBlueArea = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiDarkBlueArea = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiVioletArea = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiBlackArea = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiWhiteArea = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.tsmiAlarms = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
@@ -162,15 +187,217 @@
             // 
             // tsmiForegroundColor
             // 
+            this.tsmiForegroundColor.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiRedFont,
+            this.tsmiBrownFont,
+            this.tsmiOrangeFont,
+            this.tsmiYellowFont,
+            this.tsmiGreenFont,
+            this.tsmiGreyFont,
+            this.tsmiBlueFont,
+            this.tsmiLightBlueFont,
+            this.tsmiDarkBlueFont,
+            this.tsmiVioletFont,
+            this.tsmiBlackFont,
+            this.tsmiPinkFont,
+            this.tsmiWhiteColor});
             this.tsmiForegroundColor.Name = "tsmiForegroundColor";
-            this.tsmiForegroundColor.Size = new System.Drawing.Size(168, 22);
+            this.tsmiForegroundColor.Size = new System.Drawing.Size(180, 22);
             this.tsmiForegroundColor.Text = "Foreground color";
+            // 
+            // tsmiRedFont
+            // 
+            this.tsmiRedFont.Name = "tsmiRedFont";
+            this.tsmiRedFont.Size = new System.Drawing.Size(127, 22);
+            this.tsmiRedFont.Text = "Red";
+            this.tsmiRedFont.Click += new System.EventHandler(this.tsmiRedFont_Click);
+            // 
+            // tsmiBrownFont
+            // 
+            this.tsmiBrownFont.Name = "tsmiBrownFont";
+            this.tsmiBrownFont.Size = new System.Drawing.Size(127, 22);
+            this.tsmiBrownFont.Text = "Brown";
+            this.tsmiBrownFont.Click += new System.EventHandler(this.tsmiBrownFont_Click);
+            // 
+            // tsmiOrangeFont
+            // 
+            this.tsmiOrangeFont.Name = "tsmiOrangeFont";
+            this.tsmiOrangeFont.Size = new System.Drawing.Size(127, 22);
+            this.tsmiOrangeFont.Text = "Orange";
+            this.tsmiOrangeFont.Click += new System.EventHandler(this.tsmiOrangeFont_Click);
+            // 
+            // tsmiYellowFont
+            // 
+            this.tsmiYellowFont.Name = "tsmiYellowFont";
+            this.tsmiYellowFont.Size = new System.Drawing.Size(127, 22);
+            this.tsmiYellowFont.Text = "Yellow";
+            this.tsmiYellowFont.Click += new System.EventHandler(this.tsmiYellowFont_Click);
+            // 
+            // tsmiGreenFont
+            // 
+            this.tsmiGreenFont.Name = "tsmiGreenFont";
+            this.tsmiGreenFont.Size = new System.Drawing.Size(127, 22);
+            this.tsmiGreenFont.Text = "Green";
+            this.tsmiGreenFont.Click += new System.EventHandler(this.tsmiGreenFont_Click);
+            // 
+            // tsmiGreyFont
+            // 
+            this.tsmiGreyFont.Name = "tsmiGreyFont";
+            this.tsmiGreyFont.Size = new System.Drawing.Size(127, 22);
+            this.tsmiGreyFont.Text = "Grey";
+            this.tsmiGreyFont.Click += new System.EventHandler(this.tsmiGreyFont_Click);
+            // 
+            // tsmiBlueFont
+            // 
+            this.tsmiBlueFont.Name = "tsmiBlueFont";
+            this.tsmiBlueFont.Size = new System.Drawing.Size(127, 22);
+            this.tsmiBlueFont.Text = "Blue";
+            this.tsmiBlueFont.Click += new System.EventHandler(this.tsmiBlueArea_Click);
+            // 
+            // tsmiLightBlueFont
+            // 
+            this.tsmiLightBlueFont.Name = "tsmiLightBlueFont";
+            this.tsmiLightBlueFont.Size = new System.Drawing.Size(127, 22);
+            this.tsmiLightBlueFont.Text = "Light Blue";
+            this.tsmiLightBlueFont.Click += new System.EventHandler(this.tsmiLightBlueFont_Click);
+            // 
+            // tsmiDarkBlueFont
+            // 
+            this.tsmiDarkBlueFont.Name = "tsmiDarkBlueFont";
+            this.tsmiDarkBlueFont.Size = new System.Drawing.Size(127, 22);
+            this.tsmiDarkBlueFont.Text = "Dark Blue";
+            this.tsmiDarkBlueFont.Click += new System.EventHandler(this.tsmiDarkBlueFont_Click);
+            // 
+            // tsmiVioletFont
+            // 
+            this.tsmiVioletFont.Name = "tsmiVioletFont";
+            this.tsmiVioletFont.Size = new System.Drawing.Size(127, 22);
+            this.tsmiVioletFont.Text = "Violet";
+            this.tsmiVioletFont.Click += new System.EventHandler(this.tsmiVioletFont_Click);
+            // 
+            // tsmiBlackFont
+            // 
+            this.tsmiBlackFont.Name = "tsmiBlackFont";
+            this.tsmiBlackFont.Size = new System.Drawing.Size(127, 22);
+            this.tsmiBlackFont.Text = "Black";
+            this.tsmiBlackFont.Click += new System.EventHandler(this.tsmiBlackFont_Click);
+            // 
+            // tsmiPinkFont
+            // 
+            this.tsmiPinkFont.Name = "tsmiPinkFont";
+            this.tsmiPinkFont.Size = new System.Drawing.Size(127, 22);
+            this.tsmiPinkFont.Text = "Pink";
+            this.tsmiPinkFont.Click += new System.EventHandler(this.tsmiPinkFont_Click);
+            // 
+            // tsmiWhiteColor
+            // 
+            this.tsmiWhiteColor.Name = "tsmiWhiteColor";
+            this.tsmiWhiteColor.Size = new System.Drawing.Size(127, 22);
+            this.tsmiWhiteColor.Text = "White";
+            this.tsmiWhiteColor.Click += new System.EventHandler(this.tsmiWhiteColor_Click);
             // 
             // tsmiBackgroundColor
             // 
+            this.tsmiBackgroundColor.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiRedArea,
+            this.tsmiBrownArea,
+            this.tsmiOrangeArea,
+            this.tsmiYellowArea,
+            this.tsmiGreenArea,
+            this.tsmiGreyArea,
+            this.tsmiBlueArea,
+            this.tmsiLightBlueArea,
+            this.tsmiDarkBlueArea,
+            this.tsmiVioletArea,
+            this.tsmiBlackArea,
+            this.tsmiWhiteArea});
             this.tsmiBackgroundColor.Name = "tsmiBackgroundColor";
-            this.tsmiBackgroundColor.Size = new System.Drawing.Size(168, 22);
+            this.tsmiBackgroundColor.Size = new System.Drawing.Size(180, 22);
             this.tsmiBackgroundColor.Text = "Background color";
+            // 
+            // tsmiRedArea
+            // 
+            this.tsmiRedArea.Name = "tsmiRedArea";
+            this.tsmiRedArea.Size = new System.Drawing.Size(180, 22);
+            this.tsmiRedArea.Text = "Red";
+            this.tsmiRedArea.Click += new System.EventHandler(this.tsmiRedArea_Click);
+            // 
+            // tsmiBrownArea
+            // 
+            this.tsmiBrownArea.Name = "tsmiBrownArea";
+            this.tsmiBrownArea.Size = new System.Drawing.Size(180, 22);
+            this.tsmiBrownArea.Text = "Brown";
+            this.tsmiBrownArea.Click += new System.EventHandler(this.tsmiBrownArea_Click);
+            // 
+            // tsmiOrangeArea
+            // 
+            this.tsmiOrangeArea.Name = "tsmiOrangeArea";
+            this.tsmiOrangeArea.Size = new System.Drawing.Size(180, 22);
+            this.tsmiOrangeArea.Text = "Orange";
+            this.tsmiOrangeArea.Click += new System.EventHandler(this.tsmiOrangeArea_Click);
+            // 
+            // tsmiYellowArea
+            // 
+            this.tsmiYellowArea.Name = "tsmiYellowArea";
+            this.tsmiYellowArea.Size = new System.Drawing.Size(180, 22);
+            this.tsmiYellowArea.Text = "Yellow";
+            this.tsmiYellowArea.Click += new System.EventHandler(this.tsmiYellowArea_Click);
+            // 
+            // tsmiGreenArea
+            // 
+            this.tsmiGreenArea.Name = "tsmiGreenArea";
+            this.tsmiGreenArea.Size = new System.Drawing.Size(180, 22);
+            this.tsmiGreenArea.Text = "Green";
+            this.tsmiGreenArea.Click += new System.EventHandler(this.tsmiGreenArea_Click);
+            // 
+            // tsmiGreyArea
+            // 
+            this.tsmiGreyArea.Name = "tsmiGreyArea";
+            this.tsmiGreyArea.Size = new System.Drawing.Size(180, 22);
+            this.tsmiGreyArea.Text = "Grey";
+            this.tsmiGreyArea.Click += new System.EventHandler(this.tsmiGreyArea_Click);
+            // 
+            // tsmiBlueArea
+            // 
+            this.tsmiBlueArea.Name = "tsmiBlueArea";
+            this.tsmiBlueArea.Size = new System.Drawing.Size(180, 22);
+            this.tsmiBlueArea.Text = "Blue";
+            this.tsmiBlueArea.Click += new System.EventHandler(this.tsmiBlueArea_Click_1);
+            // 
+            // tmsiLightBlueArea
+            // 
+            this.tmsiLightBlueArea.Name = "tmsiLightBlueArea";
+            this.tmsiLightBlueArea.Size = new System.Drawing.Size(180, 22);
+            this.tmsiLightBlueArea.Text = "Light Blue";
+            this.tmsiLightBlueArea.Click += new System.EventHandler(this.tmsiLightBlueArea_Click);
+            // 
+            // tsmiDarkBlueArea
+            // 
+            this.tsmiDarkBlueArea.Name = "tsmiDarkBlueArea";
+            this.tsmiDarkBlueArea.Size = new System.Drawing.Size(180, 22);
+            this.tsmiDarkBlueArea.Text = "Dark Blue";
+            this.tsmiDarkBlueArea.Click += new System.EventHandler(this.tsmiDarkBlueArea_Click);
+            // 
+            // tsmiVioletArea
+            // 
+            this.tsmiVioletArea.Name = "tsmiVioletArea";
+            this.tsmiVioletArea.Size = new System.Drawing.Size(180, 22);
+            this.tsmiVioletArea.Text = "Violet";
+            this.tsmiVioletArea.Click += new System.EventHandler(this.tsmiVioletArea_Click);
+            // 
+            // tsmiBlackArea
+            // 
+            this.tsmiBlackArea.Name = "tsmiBlackArea";
+            this.tsmiBlackArea.Size = new System.Drawing.Size(180, 22);
+            this.tsmiBlackArea.Text = "Black";
+            this.tsmiBlackArea.Click += new System.EventHandler(this.tsmiBlackArea_Click);
+            // 
+            // tsmiWhiteArea
+            // 
+            this.tsmiWhiteArea.Name = "tsmiWhiteArea";
+            this.tsmiWhiteArea.Size = new System.Drawing.Size(180, 22);
+            this.tsmiWhiteArea.Text = "White";
+            this.tsmiWhiteArea.Click += new System.EventHandler(this.tsmiWhiteArea_Click);
             // 
             // toolStripSeparator4
             // 
@@ -303,6 +530,31 @@
         private System.Windows.Forms.ToolStripMenuItem tsmiAutoStart;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripMenuItem tsmiQuit;
+        private System.Windows.Forms.ToolStripMenuItem tsmiRedFont;
+        private System.Windows.Forms.ToolStripMenuItem tsmiBrownFont;
+        private System.Windows.Forms.ToolStripMenuItem tsmiOrangeFont;
+        private System.Windows.Forms.ToolStripMenuItem tsmiYellowFont;
+        private System.Windows.Forms.ToolStripMenuItem tsmiGreenFont;
+        private System.Windows.Forms.ToolStripMenuItem tsmiLightBlueFont;
+        private System.Windows.Forms.ToolStripMenuItem tsmiDarkBlueFont;
+        private System.Windows.Forms.ToolStripMenuItem tsmiVioletFont;
+        private System.Windows.Forms.ToolStripMenuItem tsmiBlackFont;
+        private System.Windows.Forms.ToolStripMenuItem tsmiRedArea;
+        private System.Windows.Forms.ToolStripMenuItem tsmiBrownArea;
+        private System.Windows.Forms.ToolStripMenuItem tsmiOrangeArea;
+        private System.Windows.Forms.ToolStripMenuItem tsmiYellowArea;
+        private System.Windows.Forms.ToolStripMenuItem tsmiGreenArea;
+        private System.Windows.Forms.ToolStripMenuItem tmsiLightBlueArea;
+        private System.Windows.Forms.ToolStripMenuItem tsmiDarkBlueArea;
+        private System.Windows.Forms.ToolStripMenuItem tsmiVioletArea;
+        private System.Windows.Forms.ToolStripMenuItem tsmiBlackArea;
+        private System.Windows.Forms.ToolStripMenuItem tsmiBlueFont;
+        private System.Windows.Forms.ToolStripMenuItem tsmiPinkFont;
+        private System.Windows.Forms.ToolStripMenuItem tsmiBlueArea;
+        private System.Windows.Forms.ToolStripMenuItem tsmiWhiteColor;
+        private System.Windows.Forms.ToolStripMenuItem tsmiWhiteArea;
+        private System.Windows.Forms.ToolStripMenuItem tsmiGreyFont;
+        private System.Windows.Forms.ToolStripMenuItem tsmiGreyArea;
     }
 }
 

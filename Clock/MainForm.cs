@@ -12,6 +12,7 @@ namespace Clock
 {
     public partial class MainForm : Form
     {
+        private DataGridView dataGrid;
         public MainForm()
         {
             InitializeComponent();
@@ -85,5 +86,123 @@ namespace Clock
         private void cbShowWeekday_CheckedChanged(object sender, EventArgs e) => tsmiShowWeekday.Checked = cbShowWeekday.Checked;
 
         private void tsmiQuit_Click(object sender, EventArgs e) => this.Close();
+
+        private void tsmiRedFont_Click(object sender, EventArgs e)
+        {
+            this.ForeColor = Color.Red;
+        }
+
+        private void tsmiBrownFont_Click(object sender, EventArgs e)
+        {
+            this.ForeColor = Color.Brown;
+        }
+        private void tsmiOrangeFont_Click(object sender, EventArgs e)
+        {
+            this.ForeColor = Color.Orange;
+        }
+
+        private void tsmiYellowFont_Click(object sender, EventArgs e)
+        {
+            this.ForeColor = Color.Yellow;
+        }
+
+        private void tsmiGreenFont_Click(object sender, EventArgs e)
+        {
+            this.ForeColor = Color.Green;
+        }
+        private void tsmiGreyFont_Click(object sender, EventArgs e)
+        {
+            this.ForeColor = Color.Gray;
+        }
+        private void tsmiBlueArea_Click(object sender, EventArgs e)
+        {
+            this.ForeColor = Color.Blue;
+        }
+        private void tsmiLightBlueFont_Click(object sender, EventArgs e)
+        {
+            this.ForeColor = Color.LightBlue;
+        }
+
+        private void tsmiDarkBlueFont_Click(object sender, EventArgs e)
+        {
+            this.ForeColor = Color.DarkBlue;
+        }
+
+        private void tsmiVioletFont_Click(object sender, EventArgs e)
+        {
+            this.ForeColor = Color.Violet;
+        }
+
+        private void tsmiBlackFont_Click(object sender, EventArgs e)
+        {
+            this.ForeColor = Color.Black;
+        }
+
+        private void tsmiPinkFont_Click(object sender, EventArgs e)
+        {
+            this.ForeColor = Color.Pink;
+        }
+
+        private void tsmiRedArea_Click(object sender, EventArgs e)
+        {
+            this.BackColor = Color.Red;
+        }
+        private void tsmiWhiteColor_Click(object sender, EventArgs e)
+        {
+            this.ForeColor = Color.White;
+        }
+        private void tsmiBrownArea_Click(object sender, EventArgs e)
+        {
+            this.BackColor = Color.Brown;
+        }
+
+        private void tsmiOrangeArea_Click(object sender, EventArgs e)
+        {
+            this.BackColor = Color.Orange;
+        }
+
+        private void tsmiYellowArea_Click(object sender, EventArgs e)
+        {
+            this.BackColor = Color.Yellow;
+        }
+
+        private void tsmiGreenArea_Click(object sender, EventArgs e)
+        {
+            this.BackColor = Color.Green;
+        }
+        private void tsmiGreyArea_Click(object sender, EventArgs e)
+        {
+            this.BackColor = Color.Gray;
+        }
+        private void tmsiLightBlueArea_Click(object sender, EventArgs e)
+        {
+            this.BackColor = Color.LightBlue;
+        }
+
+        private void tsmiDarkBlueArea_Click(object sender, EventArgs e)
+        {
+            this.BackColor = Color.DarkBlue;
+        }
+
+        private void tsmiVioletArea_Click(object sender, EventArgs e)
+        {
+            this.BackColor = Color.Violet;
+        }
+
+        private void tsmiBlackArea_Click(object sender, EventArgs e)
+        {
+            this.BackColor = Color.Black;
+        }
+
+        private void tsmiBlueArea_Click_1(object sender, EventArgs e)
+        {
+            this.BackColor = Color.Blue;
+        }
+
+        private void tsmiWhiteArea_Click(object sender, EventArgs e)
+        {
+            this.BackColor = Color.White;
+        }
+
     }
 }
