@@ -21,11 +21,15 @@ namespace Clock
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.StartPosition = FormStartPosition.Manual;
-            //int screen
+            int screenWidth = Screen.PrimaryScreen.WorkingArea.Width;
+            int screenY = Screen.PrimaryScreen.WorkingArea.Y;
+            int formWidth = this.Width;
+            int indentation = 10;
+            int xOffiset = Screen.PrimaryScreen.WorkingArea.X + screenWidth - formWidth - indentation; 
             this.Location = new Point
                 (
-                Screen.PrimaryScreen.Bounds.X,
-                Screen.PrimaryScreen.Bounds.Y
+                xOffiset,
+                screenY
                 );
             this.MouseClick += ContextMenu_MouseClick;
         }
