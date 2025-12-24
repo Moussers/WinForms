@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FontDialog));
             this.comboBoxFont = new System.Windows.Forms.ComboBox();
             this.labelExample = new System.Windows.Forms.Label();
             this.buttonOK = new System.Windows.Forms.Button();
@@ -83,6 +84,7 @@
             this.Controls.Add(this.buttonOK);
             this.Controls.Add(this.labelExample);
             this.Controls.Add(this.comboBoxFont);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FontDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "FontDialog";
