@@ -80,6 +80,8 @@
             this.cbShowWeekday = new System.Windows.Forms.CheckBox();
             this.btnHideControls = new System.Windows.Forms.Button();
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.tsmiCustomFonts = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiRegularFonts = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -172,6 +174,9 @@
             // 
             // tsmiFont
             // 
+            this.tsmiFont.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiCustomFonts,
+            this.tsmiRegularFonts});
             this.tsmiFont.Name = "tsmiFont";
             this.tsmiFont.Size = new System.Drawing.Size(180, 22);
             this.tsmiFont.Text = "Font";
@@ -482,6 +487,18 @@
             this.notifyIcon.Visible = true;
             this.notifyIcon.DoubleClick += new System.EventHandler(this.notifyIcon_DoubleClick);
             // 
+            // tsmiCustomFonts
+            // 
+            this.tsmiCustomFonts.Name = "tsmiCustomFonts";
+            this.tsmiCustomFonts.Size = new System.Drawing.Size(180, 22);
+            this.tsmiCustomFonts.Text = "Custom Fonts";
+            // 
+            // tsmiRegularFonts
+            // 
+            this.tsmiRegularFonts.Name = "tsmiRegularFonts";
+            this.tsmiRegularFonts.Size = new System.Drawing.Size(180, 22);
+            this.tsmiRegularFonts.Text = "Regular Fonts";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -556,6 +573,8 @@
         private System.Windows.Forms.ToolStripMenuItem tsmiWhiteArea;
         private System.Windows.Forms.ToolStripMenuItem tsmiGreyFont;
         private System.Windows.Forms.ToolStripMenuItem tsmiGreyArea;
+        private System.Windows.Forms.ToolStripMenuItem tsmiCustomFonts;
+        private System.Windows.Forms.ToolStripMenuItem tsmiRegularFonts;
     }
 }
 
