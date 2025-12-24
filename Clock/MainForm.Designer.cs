@@ -175,6 +175,7 @@
             this.tsmiFont.Name = "tsmiFont";
             this.tsmiFont.Size = new System.Drawing.Size(180, 22);
             this.tsmiFont.Text = "Font";
+            this.tsmiFont.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // tsmiColor
             // 
