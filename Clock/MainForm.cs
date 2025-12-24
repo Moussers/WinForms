@@ -12,6 +12,7 @@ namespace Clock
 {
     public partial class MainForm : Form
     {
+        FontDialog fontDialog;
         ColorDialog foregroundColorDialog;
         ColorDialog backgroundColorDialog;
         public MainForm()
@@ -26,6 +27,9 @@ namespace Clock
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             SetVisibility(false);
+            fontDialog = new FontDialog();
+            foregroundColorDialog = new ColorDialog();
+            backgroundColorDialog = new ColorDialog();
         }
         void SetVisibility(bool visible) 
         {
@@ -35,8 +39,6 @@ namespace Clock
             this.ShowInTaskbar = visible;
             this.FormBorderStyle = visible ? FormBorderStyle.FixedSingle: FormBorderStyle.None;
             this.TransparencyKey = visible ? Color.Empty: this.BackColor;
-            foregroundColorDialog = new ColorDialog();
-            backgroundColorDialog = new ColorDialog();
         }
         private void timer_Tick(object sender, EventArgs e)
         {
@@ -106,6 +108,16 @@ namespace Clock
         {
             backgroundColorDialog.ShowDialog();
             labelTime.BackColor = backgroundColorDialog.Color;
+        }
+
+        private void tsmiFont_Click(object sender, EventArgs e)
+        {
+            fontDialog.Location = new Point
+                (
+                this.Location.X - fontDialog.Width - 10,
+                this.Location.Y
+                );
+            fontDialog.ShowDialog();
         }
     }
 }
