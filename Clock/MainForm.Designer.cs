@@ -517,6 +517,7 @@
             this.MinimizeBox = false;
             this.Name = "MainForm";
             this.Text = "ClockPV521";
+            this.TopMost = true;
             this.contextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
