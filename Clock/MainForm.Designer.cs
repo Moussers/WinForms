@@ -41,6 +41,8 @@
             this.tsmiShowConsole = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.tsmiFont = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiCustomFonts = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiRegularFonts = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiColor = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiForegroundColor = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiRedFont = new System.Windows.Forms.ToolStripMenuItem();
@@ -80,8 +82,7 @@
             this.cbShowWeekday = new System.Windows.Forms.CheckBox();
             this.btnHideControls = new System.Windows.Forms.Button();
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
-            this.tsmiCustomFonts = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiRegularFonts = new System.Windows.Forms.ToolStripMenuItem();
+            this.fontDialog = new System.Windows.Forms.FontDialog();
             this.contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -117,33 +118,33 @@
             this.toolStripSeparator6,
             this.tsmiQuit});
             this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(181, 282);
+            this.contextMenuStrip.Size = new System.Drawing.Size(153, 260);
             // 
             // tsmiTopmost
             // 
             this.tsmiTopmost.CheckOnClick = true;
             this.tsmiTopmost.Name = "tsmiTopmost";
-            this.tsmiTopmost.Size = new System.Drawing.Size(180, 22);
+            this.tsmiTopmost.Size = new System.Drawing.Size(152, 22);
             this.tsmiTopmost.Text = "Topmost";
             // 
             // tsmiShowControls
             // 
             this.tsmiShowControls.CheckOnClick = true;
             this.tsmiShowControls.Name = "tsmiShowControls";
-            this.tsmiShowControls.Size = new System.Drawing.Size(180, 22);
+            this.tsmiShowControls.Size = new System.Drawing.Size(152, 22);
             this.tsmiShowControls.Text = "Show controls";
             this.tsmiShowControls.CheckedChanged += new System.EventHandler(this.tsmiShowControls_CheckedChanged);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
             // 
             // tsmiShowDate
             // 
             this.tsmiShowDate.CheckOnClick = true;
             this.tsmiShowDate.Name = "tsmiShowDate";
-            this.tsmiShowDate.Size = new System.Drawing.Size(180, 22);
+            this.tsmiShowDate.Size = new System.Drawing.Size(152, 22);
             this.tsmiShowDate.Text = "Show date";
             this.tsmiShowDate.CheckedChanged += new System.EventHandler(this.tsmiShowDate_CheckedChanged);
             // 
@@ -151,26 +152,26 @@
             // 
             this.tsmiShowWeekday.CheckOnClick = true;
             this.tsmiShowWeekday.Name = "tsmiShowWeekday";
-            this.tsmiShowWeekday.Size = new System.Drawing.Size(180, 22);
+            this.tsmiShowWeekday.Size = new System.Drawing.Size(152, 22);
             this.tsmiShowWeekday.Text = "Show weekday";
             this.tsmiShowWeekday.CheckedChanged += new System.EventHandler(this.tsmiShowWeekday_CheckedChanged);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
             // 
             // tsmiShowConsole
             // 
             this.tsmiShowConsole.CheckOnClick = true;
             this.tsmiShowConsole.Name = "tsmiShowConsole";
-            this.tsmiShowConsole.Size = new System.Drawing.Size(180, 22);
+            this.tsmiShowConsole.Size = new System.Drawing.Size(152, 22);
             this.tsmiShowConsole.Text = "Show concole";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(149, 6);
             // 
             // tsmiFont
             // 
@@ -178,9 +179,22 @@
             this.tsmiCustomFonts,
             this.tsmiRegularFonts});
             this.tsmiFont.Name = "tsmiFont";
-            this.tsmiFont.Size = new System.Drawing.Size(180, 22);
+            this.tsmiFont.Size = new System.Drawing.Size(152, 22);
             this.tsmiFont.Text = "Font";
             this.tsmiFont.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // tsmiCustomFonts
+            // 
+            this.tsmiCustomFonts.Name = "tsmiCustomFonts";
+            this.tsmiCustomFonts.Size = new System.Drawing.Size(148, 22);
+            this.tsmiCustomFonts.Text = "Custom Fonts";
+            // 
+            // tsmiRegularFonts
+            // 
+            this.tsmiRegularFonts.Name = "tsmiRegularFonts";
+            this.tsmiRegularFonts.Size = new System.Drawing.Size(148, 22);
+            this.tsmiRegularFonts.Text = "Regular Fonts";
+            this.tsmiRegularFonts.Click += new System.EventHandler(this.tsmiRegularFonts_Click);
             // 
             // tsmiColor
             // 
@@ -188,7 +202,7 @@
             this.tsmiForegroundColor,
             this.tsmiBackgroundColor});
             this.tsmiColor.Name = "tsmiColor";
-            this.tsmiColor.Size = new System.Drawing.Size(180, 22);
+            this.tsmiColor.Size = new System.Drawing.Size(152, 22);
             this.tsmiColor.Text = "Color";
             // 
             // tsmiForegroundColor
@@ -208,7 +222,7 @@
             this.tsmiPinkFont,
             this.tsmiWhiteColor});
             this.tsmiForegroundColor.Name = "tsmiForegroundColor";
-            this.tsmiForegroundColor.Size = new System.Drawing.Size(180, 22);
+            this.tsmiForegroundColor.Size = new System.Drawing.Size(168, 22);
             this.tsmiForegroundColor.Text = "Foreground color";
             // 
             // tsmiRedFont
@@ -318,124 +332,124 @@
             this.tsmiBlackArea,
             this.tsmiWhiteArea});
             this.tsmiBackgroundColor.Name = "tsmiBackgroundColor";
-            this.tsmiBackgroundColor.Size = new System.Drawing.Size(180, 22);
+            this.tsmiBackgroundColor.Size = new System.Drawing.Size(168, 22);
             this.tsmiBackgroundColor.Text = "Background color";
             // 
             // tsmiRedArea
             // 
             this.tsmiRedArea.Name = "tsmiRedArea";
-            this.tsmiRedArea.Size = new System.Drawing.Size(180, 22);
+            this.tsmiRedArea.Size = new System.Drawing.Size(127, 22);
             this.tsmiRedArea.Text = "Red";
             this.tsmiRedArea.Click += new System.EventHandler(this.tsmiRedArea_Click);
             // 
             // tsmiBrownArea
             // 
             this.tsmiBrownArea.Name = "tsmiBrownArea";
-            this.tsmiBrownArea.Size = new System.Drawing.Size(180, 22);
+            this.tsmiBrownArea.Size = new System.Drawing.Size(127, 22);
             this.tsmiBrownArea.Text = "Brown";
             this.tsmiBrownArea.Click += new System.EventHandler(this.tsmiBrownArea_Click);
             // 
             // tsmiOrangeArea
             // 
             this.tsmiOrangeArea.Name = "tsmiOrangeArea";
-            this.tsmiOrangeArea.Size = new System.Drawing.Size(180, 22);
+            this.tsmiOrangeArea.Size = new System.Drawing.Size(127, 22);
             this.tsmiOrangeArea.Text = "Orange";
             this.tsmiOrangeArea.Click += new System.EventHandler(this.tsmiOrangeArea_Click);
             // 
             // tsmiYellowArea
             // 
             this.tsmiYellowArea.Name = "tsmiYellowArea";
-            this.tsmiYellowArea.Size = new System.Drawing.Size(180, 22);
+            this.tsmiYellowArea.Size = new System.Drawing.Size(127, 22);
             this.tsmiYellowArea.Text = "Yellow";
             this.tsmiYellowArea.Click += new System.EventHandler(this.tsmiYellowArea_Click);
             // 
             // tsmiGreenArea
             // 
             this.tsmiGreenArea.Name = "tsmiGreenArea";
-            this.tsmiGreenArea.Size = new System.Drawing.Size(180, 22);
+            this.tsmiGreenArea.Size = new System.Drawing.Size(127, 22);
             this.tsmiGreenArea.Text = "Green";
             this.tsmiGreenArea.Click += new System.EventHandler(this.tsmiGreenArea_Click);
             // 
             // tsmiGreyArea
             // 
             this.tsmiGreyArea.Name = "tsmiGreyArea";
-            this.tsmiGreyArea.Size = new System.Drawing.Size(180, 22);
+            this.tsmiGreyArea.Size = new System.Drawing.Size(127, 22);
             this.tsmiGreyArea.Text = "Grey";
             this.tsmiGreyArea.Click += new System.EventHandler(this.tsmiGreyArea_Click);
             // 
             // tsmiBlueArea
             // 
             this.tsmiBlueArea.Name = "tsmiBlueArea";
-            this.tsmiBlueArea.Size = new System.Drawing.Size(180, 22);
+            this.tsmiBlueArea.Size = new System.Drawing.Size(127, 22);
             this.tsmiBlueArea.Text = "Blue";
             this.tsmiBlueArea.Click += new System.EventHandler(this.tsmiBlueArea_Click_1);
             // 
             // tmsiLightBlueArea
             // 
             this.tmsiLightBlueArea.Name = "tmsiLightBlueArea";
-            this.tmsiLightBlueArea.Size = new System.Drawing.Size(180, 22);
+            this.tmsiLightBlueArea.Size = new System.Drawing.Size(127, 22);
             this.tmsiLightBlueArea.Text = "Light Blue";
             this.tmsiLightBlueArea.Click += new System.EventHandler(this.tmsiLightBlueArea_Click);
             // 
             // tsmiDarkBlueArea
             // 
             this.tsmiDarkBlueArea.Name = "tsmiDarkBlueArea";
-            this.tsmiDarkBlueArea.Size = new System.Drawing.Size(180, 22);
+            this.tsmiDarkBlueArea.Size = new System.Drawing.Size(127, 22);
             this.tsmiDarkBlueArea.Text = "Dark Blue";
             this.tsmiDarkBlueArea.Click += new System.EventHandler(this.tsmiDarkBlueArea_Click);
             // 
             // tsmiVioletArea
             // 
             this.tsmiVioletArea.Name = "tsmiVioletArea";
-            this.tsmiVioletArea.Size = new System.Drawing.Size(180, 22);
+            this.tsmiVioletArea.Size = new System.Drawing.Size(127, 22);
             this.tsmiVioletArea.Text = "Violet";
             this.tsmiVioletArea.Click += new System.EventHandler(this.tsmiVioletArea_Click);
             // 
             // tsmiBlackArea
             // 
             this.tsmiBlackArea.Name = "tsmiBlackArea";
-            this.tsmiBlackArea.Size = new System.Drawing.Size(180, 22);
+            this.tsmiBlackArea.Size = new System.Drawing.Size(127, 22);
             this.tsmiBlackArea.Text = "Black";
             this.tsmiBlackArea.Click += new System.EventHandler(this.tsmiBlackArea_Click);
             // 
             // tsmiWhiteArea
             // 
             this.tsmiWhiteArea.Name = "tsmiWhiteArea";
-            this.tsmiWhiteArea.Size = new System.Drawing.Size(180, 22);
+            this.tsmiWhiteArea.Size = new System.Drawing.Size(127, 22);
             this.tsmiWhiteArea.Text = "White";
             this.tsmiWhiteArea.Click += new System.EventHandler(this.tsmiWhiteArea_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(149, 6);
             // 
             // tsmiAlarms
             // 
             this.tsmiAlarms.Name = "tsmiAlarms";
-            this.tsmiAlarms.Size = new System.Drawing.Size(180, 22);
+            this.tsmiAlarms.Size = new System.Drawing.Size(152, 22);
             this.tsmiAlarms.Text = "Alarms";
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(149, 6);
             // 
             // tsmiAutoStart
             // 
             this.tsmiAutoStart.Name = "tsmiAutoStart";
-            this.tsmiAutoStart.Size = new System.Drawing.Size(180, 22);
+            this.tsmiAutoStart.Size = new System.Drawing.Size(152, 22);
             this.tsmiAutoStart.Text = "Auto start";
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(149, 6);
             // 
             // tsmiQuit
             // 
             this.tsmiQuit.Name = "tsmiQuit";
-            this.tsmiQuit.Size = new System.Drawing.Size(180, 22);
+            this.tsmiQuit.Size = new System.Drawing.Size(152, 22);
             this.tsmiQuit.Text = "Quit";
             this.tsmiQuit.Click += new System.EventHandler(this.tsmiQuit_Click);
             // 
@@ -486,18 +500,6 @@
             this.notifyIcon.Text = "System tray";
             this.notifyIcon.Visible = true;
             this.notifyIcon.DoubleClick += new System.EventHandler(this.notifyIcon_DoubleClick);
-            // 
-            // tsmiCustomFonts
-            // 
-            this.tsmiCustomFonts.Name = "tsmiCustomFonts";
-            this.tsmiCustomFonts.Size = new System.Drawing.Size(180, 22);
-            this.tsmiCustomFonts.Text = "Custom Fonts";
-            // 
-            // tsmiRegularFonts
-            // 
-            this.tsmiRegularFonts.Name = "tsmiRegularFonts";
-            this.tsmiRegularFonts.Size = new System.Drawing.Size(180, 22);
-            this.tsmiRegularFonts.Text = "Regular Fonts";
             // 
             // MainForm
             // 
@@ -575,6 +577,7 @@
         private System.Windows.Forms.ToolStripMenuItem tsmiGreyArea;
         private System.Windows.Forms.ToolStripMenuItem tsmiCustomFonts;
         private System.Windows.Forms.ToolStripMenuItem tsmiRegularFonts;
+        private System.Windows.Forms.FontDialog fontDialog;
     }
 }
 

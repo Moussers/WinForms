@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace Clock
 {
@@ -204,5 +205,15 @@ namespace Clock
             this.BackColor = Color.White;
         }
 
+        private void tsmiRegularFonts_Click(object sender, EventArgs e)
+        {
+            DialogResult result = fontDialog.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                Font font = fontDialog.Font;
+                labelTime.Text = string.Format("Шрифт: {0}", font.Name);
+                labelTime.Font = font;
+            }
+        }
     }
 }
