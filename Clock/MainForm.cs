@@ -30,6 +30,7 @@ namespace Clock
             fontDialog = new FontDialog();
             foregroundColorDialog = new ColorDialog();
             backgroundColorDialog = new ColorDialog();
+            this.TopMost = tsmiTopmost.Checked = true;
         }
         void SetVisibility(bool visible) 
         {
@@ -100,14 +101,20 @@ namespace Clock
 
         private void tsmiForegroundColor_Click(object sender, EventArgs e)
         {
-            foregroundColorDialog.ShowDialog();
-            labelTime.ForeColor = foregroundColorDialog.Color;
+            DialogResult result = foregroundColorDialog.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                labelTime.ForeColor = foregroundColorDialog.Color;
+            }
         }
 
         private void tsmiBackgroundColor_Click(object sender, EventArgs e)
         {
-            backgroundColorDialog.ShowDialog();
-            labelTime.BackColor = backgroundColorDialog.Color;
+            DialogResult result = backgroundColorDialog.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                labelTime.BackColor = backgroundColorDialog.Color;
+            }
         }
 
         private void tsmiFont_Click(object sender, EventArgs e)
@@ -117,7 +124,12 @@ namespace Clock
                 this.Location.X - fontDialog.Width - 10,
                 this.Location.Y
                 );
-            fontDialog.ShowDialog();
+            fontDialog.Font = labelTime.Font;
+            DialogResult result = fontDialog.ShowDialog();
+            if (result == DialogResult.OK) 
+            {
+                labelTime.Font = fontDialog.Font;
+            }
         }
     }
 }
