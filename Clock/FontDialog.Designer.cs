@@ -94,7 +94,7 @@
             0,
             0});
             this.numericUpDownFontSize.Name = "numericUpDownFontSize";
-            this.numericUpDownFontSize.Size = new System.Drawing.Size(123, 20);
+            this.numericUpDownFontSize.Size = new System.Drawing.Size(143, 20);
             this.numericUpDownFontSize.TabIndex = 4;
             this.numericUpDownFontSize.Value = new decimal(new int[] {
             22,
@@ -113,9 +113,10 @@
             this.Controls.Add(this.buttonOK);
             this.Controls.Add(this.labelExample);
             this.Controls.Add(this.comboBoxFont);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FontDialog";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "FontDialog";
             this.TopMost = true;

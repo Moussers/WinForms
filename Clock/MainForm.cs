@@ -138,7 +138,7 @@ namespace Clock
             string key_name = "ClockPV_521";
             RegistryKey rk = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);       //true - открыть ветку на запись
             if (tsmiAutoStart.Checked) rk.SetValue(key_name, Application.ExecutablePath);
-            else rk.DeleteValue(key_name, false);       //false - не бросать исключение, если данная запись остуствует в реестре.
+            else rk.DeleteValue(key_name, false);                               //false - не бросать исключение, если данная запись остуствует в реестре.
             rk.Dispose();
         }
     }
