@@ -193,6 +193,7 @@
             // 
             // tsmiAutoStart
             // 
+            this.tsmiAutoStart.CheckOnClick = true;
             this.tsmiAutoStart.Name = "tsmiAutoStart";
             this.tsmiAutoStart.Size = new System.Drawing.Size(152, 22);
             this.tsmiAutoStart.Text = "Auto start";
