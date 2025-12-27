@@ -7,18 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Drawing;
 
 namespace Clock
 {
     public partial class MainForm : Form
     {
-        private DataGridView dataGrid;
         public MainForm()
         {
             InitializeComponent();
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = new Point
+                (
+                Screen.PrimaryScreen.Bounds.Width - this.Width - 25,
+                50
+                );
             SetVisibility(false);
         }
         void SetVisibility(bool visible) 
