@@ -24,7 +24,6 @@ namespace Clock
             LoadFonts("*.otf");
             comboBoxFont.SelectedIndex = 0;
         }
-
         private void FontDialog_Load(object sender, EventArgs e)
         {
             numericUpDownFontSize.Value = (decimal)Font.Size;

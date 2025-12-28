@@ -22,5 +22,63 @@ namespace Clock.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color ForeColClock {
+            get {
+                return ((global::System.Drawing.Color)(this["ForeColClock"]));
+            }
+            set {
+                this["ForeColClock"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color BackColClock {
+            get {
+                return ((global::System.Drawing.Color)(this["BackColClock"]));
+            }
+            set {
+                this["BackColClock"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ClockFontName {
+            get {
+                return ((string)(this["ClockFontName"]));
+            }
+            set {
+                this["ClockFontName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int ClockFontStyle {
+            get {
+                return ((int)(this["ClockFontStyle"]));
+            }
+            set {
+                this["ClockFontStyle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float ClockFontSize {
+            get {
+                return ((float)(this["ClockFontSize"]));
+            }
+            set {
+                this["ClockFontSize"] = value;
+            }
+        }
     }
 }

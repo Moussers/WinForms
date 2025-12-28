@@ -9,6 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Win32;
+using System.IO;
 
 namespace Clock
 {
@@ -26,6 +27,14 @@ namespace Clock
                 Screen.PrimaryScreen.Bounds.Width - this.Width - 25,
                 50
                 );
+            labelTime.ForeColor = Properties.Settings.Default.ForeColClock;
+            labelTime.BackColor = Properties.Settings.Default.BackColClock;
+            //labelTime.Font = new Font
+            //    (
+            //    Properties.Settings.Default.ClockFontName,
+            //    Properties.Settings.Default.ClockFontSize,
+            //    (FontStyle)Properties.Settings.Default.ClockFontStyle
+            //    );
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             SetVisibility(false);
@@ -140,6 +149,16 @@ namespace Clock
             if (tsmiAutoStart.Checked) rk.SetValue(key_name, Application.ExecutablePath);
             else rk.DeleteValue(key_name, false);                               //false - не бросать исключение, если данная запись остуствует в реестре.
             rk.Dispose();
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Properties.Settings.Default.ForeColClock = labelTime.ForeColor;
+            Properties.Settings.Default.BackColClock = labelTime.BackColor;
+            Properties.Settings.Default.ClockFontName = labelTime.Font.Name;
+            Properties.Settings.Default.ClockFontStyle = (int)labelTime.Font.Style;
+            Properties.Settings.Default.ClockFontSize = labelTime.Font.Size;
+            Properties.Settings.Default.Save();
         }
     }
 }
