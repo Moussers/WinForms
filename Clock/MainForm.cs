@@ -47,14 +47,6 @@ namespace Clock
         void SaveSettings() 
         {
             Directory.SetCurrentDirectory($"{Application.ExecutablePath}\\..\\..\\..");
-            //MessageBox.Show
-            //    (
-            //    this,
-            //    Directory.GetCurrentDirectory(),
-            //    "Settings path",
-            //    MessageBoxButtons.OK,
-            //    MessageBoxIcon.Information
-            //    );
             StreamWriter writer = new StreamWriter("Settings.ini");
 
             writer.WriteLine(this.Location.X);
@@ -78,26 +70,33 @@ namespace Clock
         void LoadSettings()
         {
             Directory.SetCurrentDirectory($"{Application.ExecutablePath}\\..\\..\\..");
-            StreamReader reader = new StreamReader("Settings.ini");
+            try
+            {
+                StreamReader reader = new StreamReader("Settings.ini");
 
-            this.Location = new Point
-                (
-                Convert.ToInt32(reader.ReadLine()),
-                Convert.ToInt32(reader.ReadLine())
-                );
+                this.Location = new Point
+                    (
+                    Convert.ToInt32(reader.ReadLine()),
+                    Convert.ToInt32(reader.ReadLine())
+                    );
 
-            this.TopMost = tsmiTopmost.Checked = true;
-            tsmiTopmost.Checked = bool.Parse(reader.ReadLine());
-            tsmiShowControls.Checked = bool.Parse(reader.ReadLine());
-            tsmiShowConsole.Checked = bool.Parse(reader.ReadLine());
-            tsmiShowDate.Checked = bool.Parse(reader.ReadLine());
-            tsmiShowWeekday.Checked = bool.Parse(reader.ReadLine());
-            tsmiAutoStart.Checked = bool.Parse(reader.ReadLine());
+                this.TopMost = tsmiTopmost.Checked = true;
+                tsmiTopmost.Checked = bool.Parse(reader.ReadLine());
+                tsmiShowControls.Checked = bool.Parse(reader.ReadLine());
+                tsmiShowConsole.Checked = bool.Parse(reader.ReadLine());
+                tsmiShowDate.Checked = bool.Parse(reader.ReadLine());
+                tsmiShowWeekday.Checked = bool.Parse(reader.ReadLine());
+                tsmiAutoStart.Checked = bool.Parse(reader.ReadLine());
 
-            labelTime.BackColor = backgroundColorDialog.Color = Color.FromArgb(Convert.ToInt32(reader.ReadLine()));
-            labelTime.ForeColor = foregroundColorDialog.Color = Color.FromArgb(Convert.ToInt32(reader.ReadLine()));
+                labelTime.BackColor = backgroundColorDialog.Color = Color.FromArgb(Convert.ToInt32(reader.ReadLine()));
+                labelTime.ForeColor = foregroundColorDialog.Color = Color.FromArgb(Convert.ToInt32(reader.ReadLine()));
 
-            reader.Close();
+                reader.Close();
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show(this, ex.Message, "Settings issue", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
         private void timer_Tick(object sender, EventArgs e)
         {

@@ -61,6 +61,15 @@ namespace Clock
         }
         private void SetFont()
         {
+            Directory.SetCurrentDirectory($"{Application.ExecutablePath}\\..\\..\\..\\Fonts");
+            //MessageBox.Show
+            //    (
+            //    this,
+            //    Directory.GetCurrentDirectory(),
+            //    "FontDialog",
+            //    MessageBoxButtons.OK,
+            //    MessageBoxIcon.Information
+            //    );
             PrivateFontCollection pfc = new PrivateFontCollection();
             pfc.AddFontFile(comboBoxFont.SelectedItem.ToString());
             labelExample.Font = new Font(pfc.Families[0], (float)numericUpDownFontSize.Value);
