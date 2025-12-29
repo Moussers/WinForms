@@ -60,12 +60,12 @@ namespace Clock.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int ClockFontStyle {
+        public string ClockSavedIStyle {
             get {
-                return ((int)(this["ClockFontStyle"]));
+                return ((string)(this["ClockSavedIStyle"]));
             }
             set {
-                this["ClockFontStyle"] = value;
+                this["ClockSavedIStyle"] = value;
             }
         }
         
@@ -78,6 +78,18 @@ namespace Clock.Properties {
             }
             set {
                 this["ClockFontSize"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ClockPath {
+            get {
+                return ((string)(this["ClockPath"]));
+            }
+            set {
+                this["ClockPath"] = value;
             }
         }
     }

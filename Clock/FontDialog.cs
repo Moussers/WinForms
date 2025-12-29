@@ -15,6 +15,7 @@ namespace Clock
     public partial class FontDialog : Form
     {
         public Font Font { get; set; }
+        public string ChousenIndex { get; set; }
         int lastChosenIndex;
         public FontDialog()
         {
@@ -58,7 +59,7 @@ namespace Clock
             //MessageBox.Show(this, info, "SelectedIndexChanged", MessageBoxButtons.OK, MessageBoxIcon.Information);
             SetFont();
         }
-        void SetFont()
+        private void SetFont()
         {
             PrivateFontCollection pfc = new PrivateFontCollection();
             pfc.AddFontFile(comboBoxFont.SelectedItem.ToString());
@@ -75,6 +76,7 @@ namespace Clock
         {
             labelExample.Font = this.Font;
             comboBoxFont.SelectedIndex = lastChosenIndex;
+            this.ChousenIndex = lastChosenIndex.ToString();
         }
 
         private void numericUpDownFontSize_ValueChanged(object sender, EventArgs e)

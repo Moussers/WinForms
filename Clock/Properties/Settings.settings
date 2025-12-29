@@ -11,11 +11,14 @@
     <Setting Name="ClockFontName" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="ClockFontStyle" Type="System.Int32" Scope="User">
+    <Setting Name="ClockSavedIStyle" Type="System.String" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="ClockFontSize" Type="System.Single" Scope="User">
       <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="ClockPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

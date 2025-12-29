@@ -27,21 +27,13 @@ namespace Clock
                 Screen.PrimaryScreen.Bounds.Width - this.Width - 25,
                 50
                 );
-            labelTime.ForeColor = Properties.Settings.Default.ForeColClock;
-            labelTime.BackColor = Properties.Settings.Default.BackColClock;
-            //labelTime.Font = new Font
-            //    (
-            //    Properties.Settings.Default.ClockFontName,
-            //    Properties.Settings.Default.ClockFontSize,
-            //    (FontStyle)Properties.Settings.Default.ClockFontStyle
-            //    );
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             SetVisibility(false);
             fontDialog = new FontDialog();
             foregroundColorDialog = new ColorDialog();
             backgroundColorDialog = new ColorDialog();
-            this.TopMost = tsmiTopmost.Checked = true;
+            LoadSettings();
         }
         void SetVisibility(bool visible) 
         {
@@ -51,6 +43,61 @@ namespace Clock
             this.ShowInTaskbar = visible;
             this.FormBorderStyle = visible ? FormBorderStyle.FixedSingle: FormBorderStyle.None;
             this.TransparencyKey = visible ? Color.Empty: this.BackColor;
+        }
+        void SaveSettings() 
+        {
+            Directory.SetCurrentDirectory($"{Application.ExecutablePath}\\..\\..\\..");
+            //MessageBox.Show
+            //    (
+            //    this,
+            //    Directory.GetCurrentDirectory(),
+            //    "Settings path",
+            //    MessageBoxButtons.OK,
+            //    MessageBoxIcon.Information
+            //    );
+            StreamWriter writer = new StreamWriter("Settings.ini");
+
+            writer.WriteLine(this.Location.X);
+            writer.WriteLine(this.Location.Y);
+
+            writer.WriteLine(tsmiTopmost.Checked);
+            writer.WriteLine(tsmiShowControls.Checked);
+            writer.WriteLine(tsmiShowConsole.Checked);
+
+            writer.WriteLine(tsmiShowDate.Checked);
+            writer.WriteLine(tsmiShowWeekday.Checked);
+            writer.WriteLine(tsmiAutoStart.Checked);
+
+            writer.WriteLine(labelTime.BackColor.ToArgb());
+            writer.WriteLine(labelTime.ForeColor.ToArgb());
+
+            writer.Close();
+
+            System.Diagnostics.Process.Start("notepad", "Settings.ini");
+        }
+        void LoadSettings()
+        {
+            Directory.SetCurrentDirectory($"{Application.ExecutablePath}\\..\\..\\..");
+            StreamReader reader = new StreamReader("Settings.ini");
+
+            this.Location = new Point
+                (
+                Convert.ToInt32(reader.ReadLine()),
+                Convert.ToInt32(reader.ReadLine())
+                );
+
+            this.TopMost = tsmiTopmost.Checked = true;
+            tsmiTopmost.Checked = bool.Parse(reader.ReadLine());
+            tsmiShowControls.Checked = bool.Parse(reader.ReadLine());
+            tsmiShowConsole.Checked = bool.Parse(reader.ReadLine());
+            tsmiShowDate.Checked = bool.Parse(reader.ReadLine());
+            tsmiShowWeekday.Checked = bool.Parse(reader.ReadLine());
+            tsmiAutoStart.Checked = bool.Parse(reader.ReadLine());
+
+            labelTime.BackColor = backgroundColorDialog.Color = Color.FromArgb(Convert.ToInt32(reader.ReadLine()));
+            labelTime.ForeColor = foregroundColorDialog.Color = Color.FromArgb(Convert.ToInt32(reader.ReadLine()));
+
+            reader.Close();
         }
         private void timer_Tick(object sender, EventArgs e)
         {
@@ -153,12 +200,7 @@ namespace Clock
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Properties.Settings.Default.ForeColClock = labelTime.ForeColor;
-            Properties.Settings.Default.BackColClock = labelTime.BackColor;
-            Properties.Settings.Default.ClockFontName = labelTime.Font.Name;
-            Properties.Settings.Default.ClockFontStyle = (int)labelTime.Font.Style;
-            Properties.Settings.Default.ClockFontSize = labelTime.Font.Size;
-            Properties.Settings.Default.Save();
+            SaveSettings();
         }
     }
 }
