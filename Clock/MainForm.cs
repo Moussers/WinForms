@@ -15,9 +15,10 @@ namespace Clock
 {
     public partial class MainForm : Form
     {
-        FontDialog fontDialog;
-        ColorDialog foregroundColorDialog;
-        ColorDialog backgroundColorDialog;
+        private FontDialog fontDialog;
+        private ColorDialog foregroundColorDialog;
+        private ColorDialog backgroundColorDialog;
+        private AlarmClock alarm;
         public MainForm()
         {
             InitializeComponent();
@@ -206,6 +207,12 @@ namespace Clock
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             SaveSettings();
+        }
+
+        private void tsmiAlarms_Click(object sender, EventArgs e)
+        {
+            alarm = new AlarmClock();
+            alarm.ShowDialog();
         }
     }
 }
