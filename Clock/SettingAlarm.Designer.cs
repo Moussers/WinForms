@@ -36,6 +36,7 @@
             this.lblCurrentDate = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
             this.lblStatus = new System.Windows.Forms.Label();
+            this.buttonChoiceMusic = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblCurretnTime
@@ -51,7 +52,7 @@
             // buttonStop
             // 
             this.buttonStop.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonStop.Location = new System.Drawing.Point(205, 155);
+            this.buttonStop.Location = new System.Drawing.Point(224, 155);
             this.buttonStop.Name = "buttonStop";
             this.buttonStop.Size = new System.Drawing.Size(87, 30);
             this.buttonStop.TabIndex = 2;
@@ -120,11 +121,23 @@
             this.lblStatus.TabIndex = 18;
             this.lblStatus.Text = "Status";
             // 
+            // buttonChoiceMusic
+            // 
+            this.buttonChoiceMusic.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonChoiceMusic.Location = new System.Drawing.Point(115, 155);
+            this.buttonChoiceMusic.Name = "buttonChoiceMusic";
+            this.buttonChoiceMusic.Size = new System.Drawing.Size(87, 30);
+            this.buttonChoiceMusic.TabIndex = 19;
+            this.buttonChoiceMusic.TabStop = false;
+            this.buttonChoiceMusic.Text = "Chocie music";
+            this.buttonChoiceMusic.UseVisualStyleBackColor = true;
+            // 
             // SettingsAlarm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(323, 197);
+            this.Controls.Add(this.buttonChoiceMusic);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.lblTime);
@@ -150,5 +163,6 @@
         private System.Windows.Forms.Label lblCurrentDate;
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.Button buttonChoiceMusic;
     }
 }

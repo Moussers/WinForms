@@ -26,6 +26,8 @@ namespace Clock
             timer = new System.Timers.Timer();
             timer.Interval = 1000;
             timer.Elapsed += Timer_Elapsed;
+            lblCurretnTime.Text = DateTime.Now.ToLongTimeString();
+            lblCurrentDate.Text = DateTime.Now.ToLongDateString();
         }
 
         private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs  e) 
@@ -35,6 +37,11 @@ namespace Clock
             if (currentTime.Hour == userTime.Hour && currentTime.Minute == userTime.Minute && currentTime.Second == userTime.Second)
             {
                 timer.Stop();
+                try
+                {
+
+                }
+                catch (Exception ex) { };
                 UpdateLabel update = UpdateDataLabel;
                 if(lblStatus.InvokeRequired)
                 Invoke(update, lblStatus, "Stop");
