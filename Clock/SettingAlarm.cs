@@ -1,0 +1,88 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Clock
+{
+    public partial class SettingsAlarm : Form
+    {
+        System.Timers.Timer timer;
+        private bool alarmClockSet { get; set; }
+        private int Hours { get; set; }
+        private int Minutes { get; set; }
+        private int Seconds { get; set; }
+        public SettingsAlarm()
+        {
+            InitializeComponent();
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            lblCurretnTime.Text = DateTime.Now.ToLongTimeString();
+            lblCurrentDate.Text = DateTime.Now.ToLongDateString();
+            if(Hours == DateTime.Now.Hour && Minutes == DateTime.Now.Minute && Seconds == DateTime.Now.Second)
+            {
+                timer.Stop();
+                MessageBox.Show("Будильник звенит!", "Внимание!", MessageBoxButtons.OK);
+            }
+        }
+
+
+
+        public void StopTimer() 
+        {
+            timer.Stop();
+            if (!alarmClockSet)
+            {
+                alarmClockSet = false;
+            }
+            Hours = 0;
+            Minutes = 0;
+            Seconds = 0;
+        }
+
+        private void SettingsAlarm_Load(object sender, EventArgs e)
+        {
+            timer = new System.Timers.Timer();
+            timer.Interval = 1000;
+            timer.Elapsed += Timer_Elapsed;
+        }
+
+        private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs  e) 
+        {
+            DateTime currentTime = DateTime.Now;
+            DateTime userTime = dateTimePicker.Value;
+            if (currentTime.Hour == userTime.Hour && currentTime.Minute == userTime.Minute && currentTime.Second == userTime.Second)
+            {
+                timer.Stop();
+                UpdateLabel update = UpdateDataLabel;
+                if(lblStatus.InvokeRequired)
+                Invoke(update, lblStatus, "Stop");
+                MessageBox.Show("Ring ring ring...", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        delegate void UpdateLabel(Label lbl, string value);
+        void UpdateDataLabel(Label lbl, string value) 
+        {
+            lbl.Text = value;
+        }
+        private void buttonOK_Click(object sender, EventArgs e)
+        {
+            timer.Start();
+            lblStatus.Text = "Runing";
+        }
+
+        private void buttonStop_Click(object sender, EventArgs e)
+        {
+            timer.Stop();
+            lblStatus.Text = "Stop";
+        }
+    }
+}
