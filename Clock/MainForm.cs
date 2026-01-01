@@ -214,5 +214,6 @@ namespace Clock
             setAlarm = new SettingsAlarm();
             setAlarm.ShowDialog();
         }
+
     }
 }

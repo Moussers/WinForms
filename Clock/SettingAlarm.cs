@@ -14,16 +14,23 @@ namespace Clock
     public partial class SettingsAlarm : Form
     {
         string FileName { get; set; }
-        string Execution { get; set; }
-        System.Timers.Timer timer;
+        private bool PlaySong { get; set; }
+        private string Execution { get; set; }
+        private System.Timers.Timer timer;
         private int Hours { get; set; }
         private int Minutes { get; set; }
         private int Seconds { get; set; }
+        WMPLib.WindowsMediaPlayer winPlayer;
         public SettingsAlarm()
         {
             InitializeComponent();
+            winPlayer = new WMPLib.WindowsMediaPlayer();
+            InicializationMusicFile();
         }
-
+        private void InicializationMusicFile()
+        {
+            FileName = @"C:\\Users\\Sand\\source\\repos\\WinForms\\Clock\\Standart music\\Standart music in phone.mp3";
+        }
         private void SettingsAlarm_Load(object sender, EventArgs e)
         {
             timer = new System.Timers.Timer();
@@ -43,7 +50,11 @@ namespace Clock
                 UpdateLabel update = UpdateDataLabel;
                 if(lblStatus.InvokeRequired)
                 Invoke(update, lblStatus, "Стоп");
-                MessageBox.Show("Будильник звонит", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Будильник звонит", "Сообщение");
+                winPlayer.URL = FileName;
+                winPlayer.settings.volume = 100;
+                winPlayer.controls.play();
+                PlaySong = true;
             }
         }
 
@@ -69,7 +80,6 @@ namespace Clock
         private void btnChoiceMusic_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFile = new OpenFileDialog();
-            //openFile.Filter = "Аудиофайл ()";
             if (openFile.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 FileName = openFile.FileName;
@@ -79,7 +89,10 @@ namespace Clock
                     MessageBox.Show("Файл должен иметь формат расширение mp3", "Предупреждение", MessageBoxButtons.OK);
                     return;
                 }
-                lblPathToFile.Text = FileName.Substring(0, 14) + "...";
+                else
+                {
+                    lblPathToFile.Text = FileName.Substring(0, 14) + "...";
+                }
             }
         }
     }
