@@ -24,6 +24,12 @@ namespace Clock
         public SettingsAlarm()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = new Point
+                (
+                Screen.PrimaryScreen.Bounds.Width - this.Width - 500,
+                50
+                );
             winPlayer = new WMPLib.WindowsMediaPlayer();
             InicializationMusicFile();
         }
