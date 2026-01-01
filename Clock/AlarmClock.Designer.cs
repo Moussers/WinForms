@@ -1,6 +1,6 @@
 ﻿namespace Clock
 {
-    partial class SettingsAlarm
+    partial class alarmClock
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsAlarm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(alarmClock));
             this.buttonStop = new System.Windows.Forms.Button();
             this.buttonStart = new System.Windows.Forms.Button();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -101,7 +101,7 @@
             this.lblPathToFile.TabIndex = 20;
             this.lblPathToFile.Text = "Путь к файлу";
             // 
-            // SettingsAlarm
+            // alarmClock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -114,10 +114,10 @@
             this.Controls.Add(this.buttonStop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "SettingsAlarm";
-            this.Text = "Settings Alarm";
+            this.Name = "alarmClock";
+            this.Text = " Alarm Clock";
             this.TopMost = true;
-            this.Load += new System.EventHandler(this.SettingsAlarm_Load);
+            this.Load += new System.EventHandler(this.alarmClock_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

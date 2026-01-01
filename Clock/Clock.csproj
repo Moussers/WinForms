@@ -47,11 +47,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SettingAlarm.cs">
+    <Compile Include="AlarmClock.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SettingAlarm.Designer.cs">
-      <DependentUpon>SettingAlarm.cs</DependentUpon>
+    <Compile Include="AlarmClock.Designer.cs">
+      <DependentUpon>AlarmClock.cs</DependentUpon>
     </Compile>
     <Compile Include="FontDialog.cs">
       <SubType>Form</SubType>
@@ -67,8 +67,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="SettingAlarm.resx">
-      <DependentUpon>SettingAlarm.cs</DependentUpon>
+    <EmbeddedResource Include="AlarmClock.resx">
+      <DependentUpon>AlarmClock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FontDialog.resx">
       <DependentUpon>FontDialog.cs</DependentUpon>

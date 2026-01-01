@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Clock
 {
-    public partial class SettingsAlarm : Form
+    public partial class alarmClock : Form
     {
         string FileName { get; set; }
         private bool PlaySong { get; set; }
@@ -21,7 +21,7 @@ namespace Clock
         private int Minutes { get; set; }
         private int Seconds { get; set; }
         WMPLib.WindowsMediaPlayer winPlayer;
-        public SettingsAlarm()
+        public alarmClock()
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.Manual;
@@ -37,7 +37,7 @@ namespace Clock
         {
             FileName = @"C:\\Users\\Sand\\source\\repos\\WinForms\\Clock\\Standart music\\Standart music in phone.mp3";
         }
-        private void SettingsAlarm_Load(object sender, EventArgs e)
+        private void alarmClock_Load(object sender, EventArgs e)
         {
             timer = new System.Timers.Timer();
             timer.Interval = 1000;
