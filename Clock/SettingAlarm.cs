@@ -48,21 +48,23 @@ namespace Clock
         {
             DateTime currentTime = DateTime.Now;
             DateTime userTime = dateTimePicker.Value;
-            if (currentTime.Hour == userTime.Hour && currentTime.Minute == userTime.Minute && currentTime.Second == userTime.Second)
+            if (currentTime.Hour == userTime.Hour && currentTime.Minute == userTime.Minute && currentTime.Second == userTime.Second && currentTime.Day == userTime.Day)
             {
                 timer.Stop();
                 UpdateLabel update = UpdateDataLabel;
-                if(lblStatus.InvokeRequired)
-                Invoke(update, lblStatus, "Стоп");
-                winPlayer.URL = FileName;
-                winPlayer.settings.volume = 100;
-                winPlayer.controls.play();
-                PlaySong = true;
-                if (MessageBox.Show("Будильник звонит", "Сообщение", MessageBoxButtons.OK) == System.Windows.Forms.DialogResult.OK)
+                if (lblStatus.InvokeRequired)
                 {
-                    winPlayer.controls.stop();
-                    lblStatus.Text = "Выключен";
-                    lblStatus.BackColor = SystemColors.Control;
+                    Invoke(update, lblStatus, "Стоп");
+                    winPlayer.URL = FileName;
+                    winPlayer.settings.volume = 100;
+                    winPlayer.controls.play();
+                    PlaySong = true;
+                    if (MessageBox.Show("Будильник звонит", "Сообщение", MessageBoxButtons.OK) == System.Windows.Forms.DialogResult.OK)
+                    {
+                        winPlayer.controls.stop();
+                        lblStatus.Text = "Выключен";
+                        lblStatus.BackColor = SystemColors.Control;
+                    }
                 }
             }
         }

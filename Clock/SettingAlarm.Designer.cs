@@ -44,7 +44,7 @@
             this.buttonStop.Name = "buttonStop";
             this.buttonStop.Size = new System.Drawing.Size(87, 30);
             this.buttonStop.TabIndex = 2;
-            this.buttonStop.Text = "Stop";
+            this.buttonStop.Text = "Стоп";
             this.buttonStop.UseVisualStyleBackColor = true;
             this.buttonStop.Click += new System.EventHandler(this.buttonStop_Click);
             // 
@@ -55,7 +55,7 @@
             this.buttonStart.Name = "buttonStart";
             this.buttonStart.Size = new System.Drawing.Size(87, 30);
             this.buttonStart.TabIndex = 5;
-            this.buttonStart.Text = "Start";
+            this.buttonStart.Text = "Старт";
             this.buttonStart.UseVisualStyleBackColor = true;
             this.buttonStart.Click += new System.EventHandler(this.buttonOK_Click);
             // 
@@ -75,9 +75,9 @@
             this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblStatus.Location = new System.Drawing.Point(126, 83);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(56, 20);
+            this.lblStatus.Size = new System.Drawing.Size(62, 20);
             this.lblStatus.TabIndex = 18;
-            this.lblStatus.Text = "Status";
+            this.lblStatus.Text = "Статус";
             // 
             // btnChoiceMusic
             // 
@@ -87,7 +87,7 @@
             this.btnChoiceMusic.Size = new System.Drawing.Size(135, 30);
             this.btnChoiceMusic.TabIndex = 19;
             this.btnChoiceMusic.TabStop = false;
-            this.btnChoiceMusic.Text = "Chocie music";
+            this.btnChoiceMusic.Text = "Выбрать трек";
             this.btnChoiceMusic.UseVisualStyleBackColor = true;
             this.btnChoiceMusic.Click += new System.EventHandler(this.btnChoiceMusic_Click);
             // 
@@ -97,9 +97,9 @@
             this.lblPathToFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblPathToFile.Location = new System.Drawing.Point(225, 83);
             this.lblPathToFile.Name = "lblPathToFile";
-            this.lblPathToFile.Size = new System.Drawing.Size(84, 20);
+            this.lblPathToFile.Size = new System.Drawing.Size(112, 20);
             this.lblPathToFile.TabIndex = 20;
-            this.lblPathToFile.Text = "Path to file";
+            this.lblPathToFile.Text = "Путь к файлу";
             // 
             // SettingsAlarm
             // 
