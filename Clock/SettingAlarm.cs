@@ -36,8 +36,6 @@ namespace Clock
             timer = new System.Timers.Timer();
             timer.Interval = 1000;
             timer.Elapsed += Timer_Elapsed;
-            lblCurretnTime.Text = DateTime.Now.ToLongTimeString();
-            lblCurrentDate.Text = DateTime.Now.ToLongDateString();
         }
 
         private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs  e) 
@@ -50,11 +48,16 @@ namespace Clock
                 UpdateLabel update = UpdateDataLabel;
                 if(lblStatus.InvokeRequired)
                 Invoke(update, lblStatus, "Стоп");
-                MessageBox.Show("Будильник звонит", "Сообщение");
                 winPlayer.URL = FileName;
                 winPlayer.settings.volume = 100;
                 winPlayer.controls.play();
                 PlaySong = true;
+                if (MessageBox.Show("Будильник звонит", "Сообщение", MessageBoxButtons.OK) == System.Windows.Forms.DialogResult.OK)
+                {
+                    winPlayer.controls.stop();
+                    lblStatus.Text = "Выключен";
+                    lblStatus.BackColor = SystemColors.Control;
+                }
             }
         }
 
@@ -74,7 +77,7 @@ namespace Clock
         {
             timer.Stop();
             lblStatus.Text = "Остановлен";
-            lblStatus.BackColor = Color.White;
+            lblStatus.BackColor = SystemColors.Control;
         }
 
         private void btnChoiceMusic_Click(object sender, EventArgs e)
