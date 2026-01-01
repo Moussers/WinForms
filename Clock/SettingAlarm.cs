@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,8 @@ namespace Clock
 {
     public partial class SettingsAlarm : Form
     {
+        string FileName { get; set; }
+        string Execution { get; set; }
         System.Timers.Timer timer;
         private int Hours { get; set; }
         private int Minutes { get; set; }
@@ -37,15 +40,10 @@ namespace Clock
             if (currentTime.Hour == userTime.Hour && currentTime.Minute == userTime.Minute && currentTime.Second == userTime.Second)
             {
                 timer.Stop();
-                try
-                {
-
-                }
-                catch (Exception ex) { };
                 UpdateLabel update = UpdateDataLabel;
                 if(lblStatus.InvokeRequired)
-                Invoke(update, lblStatus, "Stop");
-                MessageBox.Show("Ring ring ring...", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Invoke(update, lblStatus, "Стоп");
+                MessageBox.Show("Будильник звонит", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -57,13 +55,32 @@ namespace Clock
         private void buttonOK_Click(object sender, EventArgs e)
         {
             timer.Start();
-            lblStatus.Text = "Runing";
+            lblStatus.Text = "Запущен";
+            lblStatus.BackColor = Color.Red;
         }
 
         private void buttonStop_Click(object sender, EventArgs e)
         {
             timer.Stop();
-            lblStatus.Text = "Stop";
+            lblStatus.Text = "Остановлен";
+            lblStatus.BackColor = Color.White;
+        }
+
+        private void btnChoiceMusic_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFile = new OpenFileDialog();
+            //openFile.Filter = "Аудиофайл ()";
+            if (openFile.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                FileName = openFile.FileName;
+                Execution = Path.GetExtension(FileName);
+                if (Execution != ".mp3")
+                {
+                    MessageBox.Show("Файл должен иметь формат расширение mp3", "Предупреждение", MessageBoxButtons.OK);
+                    return;
+                }
+                lblPathToFile.Text = FileName.Substring(0, 14) + "...";
+            }
         }
     }
 }
