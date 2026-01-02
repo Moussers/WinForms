@@ -74,6 +74,7 @@
             this.buttonDeleteAlarm.TabIndex = 5;
             this.buttonDeleteAlarm.Text = "Удалить";
             this.buttonDeleteAlarm.UseVisualStyleBackColor = true;
+            this.buttonDeleteAlarm.Click += new System.EventHandler(this.buttonDeleteAlarm_Click);
             // 
             // lblListAlarms
             // 

@@ -34,8 +34,8 @@
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.lblStatus = new System.Windows.Forms.Label();
             this.btnChoiceMusic = new System.Windows.Forms.Button();
-            this.lblPathToFile = new System.Windows.Forms.Label();
             this.buttonOK = new System.Windows.Forms.Button();
+            this.lblPathToFile = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonStop
@@ -74,7 +74,7 @@
             // 
             this.lblStatus.AutoSize = true;
             this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblStatus.Location = new System.Drawing.Point(145, 83);
+            this.lblStatus.Location = new System.Drawing.Point(145, 89);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(62, 20);
             this.lblStatus.TabIndex = 18;
@@ -92,16 +92,6 @@
             this.btnChoiceMusic.UseVisualStyleBackColor = true;
             this.btnChoiceMusic.Click += new System.EventHandler(this.btnChoiceMusic_Click);
             // 
-            // lblPathToFile
-            // 
-            this.lblPathToFile.AutoSize = true;
-            this.lblPathToFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblPathToFile.Location = new System.Drawing.Point(241, 83);
-            this.lblPathToFile.Name = "lblPathToFile";
-            this.lblPathToFile.Size = new System.Drawing.Size(112, 20);
-            this.lblPathToFile.TabIndex = 20;
-            this.lblPathToFile.Text = "Путь к файлу";
-            // 
             // buttonOK
             // 
             this.buttonOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -112,6 +102,16 @@
             this.buttonOK.Text = "OK";
             this.buttonOK.UseVisualStyleBackColor = true;
             this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
+            // 
+            // lblPathToFile
+            // 
+            this.lblPathToFile.AutoSize = true;
+            this.lblPathToFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblPathToFile.Location = new System.Drawing.Point(145, 69);
+            this.lblPathToFile.Name = "lblPathToFile";
+            this.lblPathToFile.Size = new System.Drawing.Size(112, 20);
+            this.lblPathToFile.TabIndex = 20;
+            this.lblPathToFile.Text = "Путь к файлу";
             // 
             // AlarmClock
             // 
@@ -142,7 +142,7 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker;
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Button btnChoiceMusic;
-        private System.Windows.Forms.Label lblPathToFile;
         private System.Windows.Forms.Button buttonOK;
+        private System.Windows.Forms.Label lblPathToFile;
     }
 }

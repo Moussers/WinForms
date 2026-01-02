@@ -101,6 +101,7 @@ namespace Clock
         {
             timer.Stop();
             lblStatus.Text = "Остановлен";
+            lblPathToFile.Text = "Путь к файлу";
             lblStatus.BackColor = SystemColors.Control;
             TurnOf = false;
         }

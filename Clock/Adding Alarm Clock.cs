@@ -20,10 +20,6 @@ namespace Clock
             InitializeComponent();
             dictAlarms = new Dictionary<int, AlarmClock>();
         }
-        //public override ToString()
-        //{
-        //    return "HH:mm:ss y" ;
-        //}
         private void buttonNewAlarm_Click(object sender, EventArgs e)
         {
             alarmClock = new AlarmClock();
@@ -47,6 +43,29 @@ namespace Clock
             {
                 AlarmLists.Items.Add($"{alarm.Hours}:{alarm.Minutes}:{alarm.Seconds}");
             }
+        }
+
+        private void buttonDeleteAlarm_Click(object sender, EventArgs e)
+        {
+            if (dictAlarms.Count == 0) 
+            {
+                MessageBox.Show("В списке нету будильников!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            int index = AlarmLists.SelectedIndex;
+            if (index == -1) 
+            {
+                MessageBox.Show("Выбирите будильник", "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            foreach (int idKey in dictAlarms.Keys) 
+            {
+                if (index == idKey)
+                {
+                    dictAlarms.Remove(idKey);
+                }
+            }
+            UpdatedListBox();
         }
     }
 }
