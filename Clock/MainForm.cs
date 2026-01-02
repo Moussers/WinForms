@@ -18,7 +18,7 @@ namespace Clock
         private FontDialog fontDialog;
         private ColorDialog foregroundColorDialog;
         private ColorDialog backgroundColorDialog;
-        private alarmClock setAlarm;
+        private AddingAlarm addAlarm;
         public MainForm()
         {
             InitializeComponent();
@@ -211,8 +211,8 @@ namespace Clock
 
         private void tsmiAlarms_Click(object sender, EventArgs e)
         {
-            setAlarm = new alarmClock();
-            setAlarm.ShowDialog();
+            addAlarm = new AddingAlarm();
+            addAlarm.ShowDialog();
         }
 
     }

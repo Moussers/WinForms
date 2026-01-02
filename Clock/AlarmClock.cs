@@ -11,17 +11,21 @@ using System.Windows.Forms;
 
 namespace Clock
 {
-    public partial class alarmClock : Form
+    public partial class AlarmClock : Form
     {
-        string FileName { get; set; }
+        private string FileName { get; set; }
         private bool PlaySong { get; set; }
         private string Execution { get; set; }
         private System.Timers.Timer timer;
-        private int Hours { get; set; }
-        private int Minutes { get; set; }
-        private int Seconds { get; set; }
+        public int Hours { get; set; }
+        public int Minutes { get; set; }
+        public int Seconds { get; set; }
+        public int Days { get; set; }
+        public int Months { get; set; }
+        public int Years { get; set; }
+        public bool TurnOf { get; set; }
         WMPLib.WindowsMediaPlayer winPlayer;
-        public alarmClock()
+        public AlarmClock()
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.Manual;
@@ -32,6 +36,7 @@ namespace Clock
                 );
             winPlayer = new WMPLib.WindowsMediaPlayer();
             InicializationMusicFile();
+            TurnOf = true;
         }
         private void InicializationMusicFile()
         {
@@ -42,13 +47,16 @@ namespace Clock
             timer = new System.Timers.Timer();
             timer.Interval = 1000;
             timer.Elapsed += Timer_Elapsed;
+            timer.AutoReset = true;
         }
 
         private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs  e) 
         {
             DateTime currentTime = DateTime.Now;
             DateTime userTime = dateTimePicker.Value;
-            if (currentTime.Hour == userTime.Hour && currentTime.Minute == userTime.Minute && currentTime.Second == userTime.Second && currentTime.Day == userTime.Day)
+            if (currentTime.Hour == userTime.Hour && currentTime.Minute == userTime.Minute 
+                && currentTime.Second == userTime.Second && currentTime.Day == userTime.Day 
+                && currentTime.Month == userTime.Month)
             {
                 timer.Stop();
                 UpdateLabel update = UpdateDataLabel;
@@ -74,11 +82,19 @@ namespace Clock
         {
             lbl.Text = value;
         }
-        private void buttonOK_Click(object sender, EventArgs e)
+        private void buttonStart_Click(object sender, EventArgs e)
         {
             timer.Start();
             lblStatus.Text = "Запущен";
             lblStatus.BackColor = Color.Red;
+            DateTime userTime = dateTimePicker.Value;
+            Seconds = userTime.Second;
+            Minutes = userTime.Minute;
+            Hours = userTime.Hour;
+            Days = userTime.Day;
+            Months = userTime.Month;
+            Years = userTime.Year;
+            TurnOf = true;
         }
 
         private void buttonStop_Click(object sender, EventArgs e)
@@ -86,6 +102,7 @@ namespace Clock
             timer.Stop();
             lblStatus.Text = "Остановлен";
             lblStatus.BackColor = SystemColors.Control;
+            TurnOf = false;
         }
 
         private void btnChoiceMusic_Click(object sender, EventArgs e)

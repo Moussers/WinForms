@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adding Alarm Clock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Adding Alarm Clock.Designer.cs">
+      <DependentUpon>Adding Alarm Clock.cs</DependentUpon>
+    </Compile>
     <Compile Include="AlarmClock.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +73,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Adding Alarm Clock.resx">
+      <DependentUpon>Adding Alarm Clock.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AlarmClock.resx">
       <DependentUpon>AlarmClock.cs</DependentUpon>
     </EmbeddedResource>
