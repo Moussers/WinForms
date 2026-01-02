@@ -67,7 +67,7 @@ namespace Clock
                     winPlayer.settings.volume = 100;
                     winPlayer.controls.play();
                     PlaySong = true;
-                    if (MessageBox.Show("Будильник звонит", "Сообщение", MessageBoxButtons.OK) == System.Windows.Forms.DialogResult.OK)
+                    if (MessageBox.Show("Будильник звонит", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly) == System.Windows.Forms.DialogResult.OK)
                     {
                         winPlayer.controls.stop();
                         lblStatus.Text = "Выключен";
@@ -122,6 +122,11 @@ namespace Clock
                     lblPathToFile.Text = FileName.Substring(0, 14) + "...";
                 }
             }
+        }
+
+        private void buttonOK_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

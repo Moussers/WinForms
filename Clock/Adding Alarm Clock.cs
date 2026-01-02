@@ -20,12 +20,33 @@ namespace Clock
             InitializeComponent();
             dictAlarms = new Dictionary<int, AlarmClock>();
         }
-
+        //public override ToString()
+        //{
+        //    return "HH:mm:ss y" ;
+        //}
         private void buttonNewAlarm_Click(object sender, EventArgs e)
         {
             alarmClock = new AlarmClock();
             alarmClock.ShowDialog();
-            dictAlarms.Add(ID, alarmClock);
+            if (alarmClock.TurnOf)
+            {
+                dictAlarms.Add(ID, alarmClock);
+                ID++;
+                UpdatedListBox();
+            }
+        }
+        private void UpdatedListBox() 
+        {
+            if(dictAlarms.Count == 0) 
+            {
+                AlarmLists.Items.Clear();
+                AlarmLists.Items.Add("Будильников нет.");
+            }
+            AlarmLists.Items.Clear();                       //при работе обращаемся к listBox как в Dising
+            foreach (AlarmClock alarm in dictAlarms.Values) 
+            {
+                AlarmLists.Items.Add($"{alarm.Hours}:{alarm.Minutes}:{alarm.Seconds}");
+            }
         }
     }
 }
