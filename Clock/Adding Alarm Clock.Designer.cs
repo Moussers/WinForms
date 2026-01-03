@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddingAlarm));
-            this.AlarmLists = new System.Windows.Forms.ListBox();
+            this.AlarmList = new System.Windows.Forms.ListBox();
             this.buttonAddNewAlarm = new System.Windows.Forms.Button();
             this.buttonChangeAlarm = new System.Windows.Forms.Button();
             this.buttonDeleteAlarm = new System.Windows.Forms.Button();
             this.lblListAlarms = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // AlarmLists
+            // AlarmList
             // 
-            this.AlarmLists.FormattingEnabled = true;
-            this.AlarmLists.Location = new System.Drawing.Point(16, 40);
-            this.AlarmLists.Name = "AlarmLists";
-            this.AlarmLists.Size = new System.Drawing.Size(218, 303);
-            this.AlarmLists.TabIndex = 2;
+            this.AlarmList.FormattingEnabled = true;
+            this.AlarmList.Location = new System.Drawing.Point(16, 40);
+            this.AlarmList.Name = "AlarmList";
+            this.AlarmList.Size = new System.Drawing.Size(218, 303);
+            this.AlarmList.TabIndex = 2;
             // 
             // buttonAddNewAlarm
             // 
@@ -95,7 +95,7 @@
             this.Controls.Add(this.buttonDeleteAlarm);
             this.Controls.Add(this.buttonChangeAlarm);
             this.Controls.Add(this.buttonAddNewAlarm);
-            this.Controls.Add(this.AlarmLists);
+            this.Controls.Add(this.AlarmList);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddingAlarm";
             this.Text = "Adding Alarm Clocks";
@@ -105,7 +105,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.ListBox AlarmLists;
+        private System.Windows.Forms.ListBox AlarmList;
         private System.Windows.Forms.Button buttonAddNewAlarm;
         private System.Windows.Forms.Button buttonChangeAlarm;
         private System.Windows.Forms.Button buttonDeleteAlarm;
