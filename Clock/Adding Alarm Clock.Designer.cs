@@ -64,6 +64,7 @@
             this.buttonChangeAlarm.TabIndex = 4;
             this.buttonChangeAlarm.Text = "Изменить";
             this.buttonChangeAlarm.UseVisualStyleBackColor = true;
+            this.buttonChangeAlarm.Click += new System.EventHandler(this.buttonChangeAlarm_Click);
             // 
             // buttonDeleteAlarm
             // 

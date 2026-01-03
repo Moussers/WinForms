@@ -45,19 +45,34 @@ namespace Clock
             }
         }
 
+        private void buttonChangeAlarm_Click(object sender, EventArgs e)
+        {
+            int index = AlarmList.SelectedIndex;
+            if (CheckErrors(dictAlarms, index)) 
+            {
+
+            }
+        }
         private void buttonDeleteAlarm_Click(object sender, EventArgs e)
+        {
+            int index = AlarmList.SelectedIndex;
+            if (CheckErrors(dictAlarms, index)) 
+            {
+            }
+        }
+        private bool CheckErrors(Dictionary<int, AlarmClock> dict, int index)
         {
             if (dictAlarms.Count == 0)
             {
                 MessageBox.Show("В списке нету будильников!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                return false;
             }
-            int index = AlarmList.SelectedIndex;
             if (index == -1)
             {
                 MessageBox.Show("Выбирите будильник", "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
+                return false;
             }
+            return true;
         }
     }
 }
