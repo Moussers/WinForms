@@ -130,7 +130,6 @@
             this.Name = "AlarmClock";
             this.Text = " Alarm Clock";
             this.TopMost = true;
-            this.Load += new System.EventHandler(this.alarmClock_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

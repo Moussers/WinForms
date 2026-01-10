@@ -14,16 +14,23 @@ namespace Clock
     {
         private static int ID { get; set; }
         private Dictionary<int, AlarmClock> dictAlarms;
-        private AlarmClock alarmClock;
-        public AddingAlarm()
+        public AddingAlarm(Dictionary<int, AlarmClock> _dictAlarms)
         {
             InitializeComponent();
-            dictAlarms = new Dictionary<int, AlarmClock>();
-            ID = 0;
+            dictAlarms = _dictAlarms;
+            if (dictAlarms.Count == 0)
+            {
+                ID = 0;
+            }
+            else 
+            {
+                ID = dictAlarms.Keys.Max()+1;
+            }
+            UpdatedListBox();
         }
         private void buttonNewAlarm_Click(object sender, EventArgs e)
         {
-            alarmClock = new AlarmClock();
+            AlarmClock alarmClock = new AlarmClock();
             alarmClock.ShowDialog();
             if (alarmClock.TurnOf)
             {
@@ -61,7 +68,8 @@ namespace Clock
             int index = AlarmList.SelectedIndex;
             if (CheckErrors(dictAlarms, index))
             {
-                
+                dictAlarms.Remove(index);
+                UpdatedListBox();
             }
             return;
         }

@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,7 +17,7 @@ namespace Clock
         private string FileName { get; set; }
         private bool PlaySong { get; set; }
         private string Execution { get; set; }
-        private System.Timers.Timer timer;
+        bool workingTimer;
         public int Hours { get; set; }
         public int Minutes { get; set; }
         public int Seconds { get; set; }
@@ -37,32 +38,23 @@ namespace Clock
             winPlayer = new WMPLib.WindowsMediaPlayer();
             InicializationMusicFile();
             TurnOf = true;
+            workingTimer = false;
         }
         private void InicializationMusicFile()
         {
             FileName = @"C:\\Users\\Sand\\source\\repos\\WinForms\\Clock\\Standart music\\Standart music in phone.mp3";
         }
-        private void alarmClock_Load(object sender, EventArgs e)
+        public void check_time() 
         {
-            timer = new System.Timers.Timer();
-            timer.Interval = 1000;
-            timer.Elapsed += Timer_Elapsed;
-            timer.AutoReset = true;
-        }
-
-        private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs  e) 
-        {
-            DateTime currentTime = DateTime.Now;
-            DateTime userTime = dateTimePicker.Value;
-            if (currentTime.Hour == userTime.Hour && currentTime.Minute == userTime.Minute 
-                && currentTime.Second == userTime.Second && currentTime.Day == userTime.Day 
-                && currentTime.Month == userTime.Month)
+            if (workingTimer)
             {
-                timer.Stop();
-                UpdateLabel update = UpdateDataLabel;
-                if (lblStatus.InvokeRequired)
-                {
-                    Invoke(update, lblStatus, "Стоп");
+                DateTime currentTime = DateTime.Now;
+                DateTime userTime = dateTimePicker.Value;
+                if (currentTime.Hour == userTime.Hour && currentTime.Minute == userTime.Minute
+                    && currentTime.Second == userTime.Second && currentTime.Day == userTime.Day
+                    && currentTime.Month == userTime.Month)
+                { 
+                    workingTimer = false;
                     winPlayer.URL = FileName;
                     winPlayer.settings.volume = 100;
                     winPlayer.controls.play();
@@ -77,14 +69,9 @@ namespace Clock
             }
         }
 
-        delegate void UpdateLabel(Label lbl, string value);
-        void UpdateDataLabel(Label lbl, string value) 
-        {
-            lbl.Text = value;
-        }
         private void buttonStart_Click(object sender, EventArgs e)
         {
-            timer.Start();
+            workingTimer = true;
             lblStatus.Text = "Запущен";
             lblStatus.BackColor = Color.Red;
             DateTime userTime = dateTimePicker.Value;
@@ -99,7 +86,7 @@ namespace Clock
 
         private void buttonStop_Click(object sender, EventArgs e)
         {
-            timer.Stop();
+            workingTimer = false;
             lblStatus.Text = "Остановлен";
             lblPathToFile.Text = "Путь к файлу";
             lblStatus.BackColor = SystemColors.Control;

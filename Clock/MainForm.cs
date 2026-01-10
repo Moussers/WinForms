@@ -19,6 +19,8 @@ namespace Clock
         private ColorDialog foregroundColorDialog;
         private ColorDialog backgroundColorDialog;
         private AddingAlarm addAlarm;
+        private System.Timers.Timer timer_check;
+        private Dictionary<int, AlarmClock> dictAlarms;
         public MainForm()
         {
             InitializeComponent();
@@ -35,6 +37,19 @@ namespace Clock
             foregroundColorDialog = new ColorDialog();
             backgroundColorDialog = new ColorDialog();
             LoadSettings();
+            dictAlarms = new Dictionary<int, AlarmClock>();
+            timer_check = new System.Timers.Timer();
+            timer_check.Interval = 1000;
+            timer_check.Elapsed += Timer_Elapsed;
+            timer_check.AutoReset = true;
+            timer_check.Start();
+        }
+        private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            foreach (AlarmClock alarm in dictAlarms.Values)
+            {
+                alarm.check_time();
+            }
         }
         void SetVisibility(bool visible) 
         {
@@ -211,7 +226,7 @@ namespace Clock
 
         private void tsmiAlarms_Click(object sender, EventArgs e)
         {
-            addAlarm = new AddingAlarm();
+            addAlarm = new AddingAlarm(dictAlarms);
             addAlarm.ShowDialog();
         }
 
