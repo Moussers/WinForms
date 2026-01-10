@@ -19,6 +19,7 @@ namespace Clock
         {
             InitializeComponent();
             dictAlarms = new Dictionary<int, AlarmClock>();
+            ID = 0;
         }
         private void buttonNewAlarm_Click(object sender, EventArgs e)
         {
@@ -50,15 +51,19 @@ namespace Clock
             int index = AlarmList.SelectedIndex;
             if (CheckErrors(dictAlarms, index)) 
             {
-
+                dictAlarms[index].ShowDialog();
+                UpdatedListBox();
             }
+            return;
         }
         private void buttonDeleteAlarm_Click(object sender, EventArgs e)
         {
             int index = AlarmList.SelectedIndex;
-            if (CheckErrors(dictAlarms, index)) 
+            if (CheckErrors(dictAlarms, index))
             {
+                
             }
+            return;
         }
         private bool CheckErrors(Dictionary<int, AlarmClock> dict, int index)
         {
