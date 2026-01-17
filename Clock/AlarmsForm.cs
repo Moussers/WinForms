@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,7 +36,21 @@ namespace Clock
                 listBoxAlarms.Items.Add(new Alarm(alarm.Alarm));
             }
         }
-
+        public void SaveSettingsAlarms()
+        { 
+            DirectoryInfo directory = new DirectoryInfo(Application.ExecutablePath);
+            DirectoryInfo currentDir = directory.Parent.Parent.Parent;
+            if (currentDir != null && currentDir.Exists)
+            {
+                Directory.SetCurrentDirectory(currentDir.FullName);
+                StreamWriter writer = new StreamWriter("SavingSettingsAlarms.ini");
+                writer.WriteLine(this.Location.X);
+                writer.WriteLine(this.Location.Y);
+                writer.WriteLine(listBoxAlarms.SelectedItem.ToString());
+                writer.Close();
+            }
+            
+        }
         private void listBoxAlarms_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             if (listBoxAlarms.Items.Count > 0 && listBoxAlarms.SelectedItems != null)

@@ -21,6 +21,7 @@ namespace Clock
         ColorDialog backgroundColorDialog;
         AlarmsForm alarms;
         Alarm alarm;
+        AlarmsForm alarmForm;
         public MainForm()
         {
             InitializeComponent();
@@ -38,6 +39,7 @@ namespace Clock
             backgroundColorDialog = new ColorDialog();
             alarms = new AlarmsForm();
             alarm = null;
+            alarmForm = new AlarmsForm();
             LoadSettings();
         }
         void SetVisibility(bool visible) 
@@ -224,6 +226,7 @@ namespace Clock
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             SaveSettings();
+            alarmForm.SaveSettingsAlarms();
         }
 
         private void tsmiAlarms_Click(object sender, EventArgs e)

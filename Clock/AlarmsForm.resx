@@ -141,7 +141,7 @@
     <value>2</value>
   </data>
   <data name="buttonAdd.Location" type="System.Drawing.Point, System.Drawing">
-    <value>714, 13</value>
+    <value>715, 15</value>
   </data>
   <data name="buttonAdd.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
