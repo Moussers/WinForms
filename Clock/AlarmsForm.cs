@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Clock
@@ -28,6 +23,10 @@ namespace Clock
                 );
             readSettings();
             //alarm = new AlarmDialog();
+        }
+        private void readSettingsAlarmList()
+        {
+            
         }
         private void readSettings()
         {
@@ -67,6 +66,28 @@ namespace Clock
                 ini.Write("minutes", al.Time.Minutes.ToString(), "Alarm " + i.ToString());
                 ini.Write("seconds", al.Time.Seconds.ToString(), "Alarm " + i.ToString());
                 ini.Write("filename", al.Filename.ToString(), "Alarm " + i.ToString());
+            }
+        }
+        public void SaveSettingsAlarms()
+        {
+            DirectoryInfo directory = new DirectoryInfo($"{Application.ExecutablePath}");
+            DirectoryInfo currentDir = directory.Parent.Parent.Parent;
+            if(currentDir != null && currentDir.Exists)
+            {
+                Directory.SetCurrentDirectory(currentDir.FullName);
+                StreamWriter writer = new StreamWriter("SettingAlarmList.ini");
+                for(int i = 0; i < listBoxAlarms.Items.Count; ++i)
+                {
+                    Alarm alarm = listBoxAlarms.Items[i] as Alarm;
+                    writer.WriteLine(alarm.Date.Year.ToString());
+                    writer.WriteLine(alarm.Date.Month.ToString());
+                    writer.WriteLine(alarm.Date.Day.ToString());
+                    writer.WriteLine(alarm.Time.Hours.ToString());
+                    writer.WriteLine(alarm.Time.Minutes.ToString());
+                    writer.WriteLine(alarm.Time.Seconds.ToString());
+                    writer.WriteLine(alarm.Filename.ToString());
+                }
+                writer.Close();
             }
         }
         private void listBoxAlarms_MouseDoubleClick(object sender, MouseEventArgs e)

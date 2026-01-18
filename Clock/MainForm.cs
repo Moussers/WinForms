@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Win32;
 using System.IO;
@@ -83,7 +78,6 @@ namespace Clock
             try
             {
                 StreamReader reader = new StreamReader("Settings.ini");
-
                 this.Location = new Point
                     (
                     Convert.ToInt32(reader.ReadLine()),
@@ -260,7 +254,7 @@ namespace Clock
         private void tsmiAlarms_Click(object sender, EventArgs e)
         {
             alarms.ShowDialog();
-            alarms.SaveSettingsAlarm();
+            alarms.SaveSettingsAlarms();
         }
 
         private void tsmiShowConsole_CheckedChanged(object sender, EventArgs e)
