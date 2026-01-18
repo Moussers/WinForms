@@ -140,30 +140,35 @@ namespace Clock
         Alarm FindNextAlarm()
         {
             Alarm[] actualAlarms = alarms.List.Items.Cast<Alarm>().Where(a => a.Time > DateTime.Now.TimeOfDay).ToArray();
-            if (actualAlarms.Length == 0 ) return null;
-            Alarm al = actualAlarms[0];
-            for (int i = 0; i < actualAlarms.Length; ++i)
+            if (actualAlarms.Length == 0) 
             {
-                if (actualAlarms[i].Time.Hours < al.Time.Hours)
+                return null;
+            }
+            //Решена ошибка с actualAlarms.min - была ошибка связана с IComparable<Alarm>, LINQ не имеет собственный 
+            //функциии сравнения
+            Alarm alarm = actualAlarms[0];
+            for (int i = 0; i < actualAlarms.Length; ++i) 
+            {
+                if (alarm.Time.Hours > actualAlarms[i].Time.Hours)
                 {
-                    al = actualAlarms[i];
+                    alarm = actualAlarms[i];
                 }
-                else if (actualAlarms[i].Time.Hours == al.Time.Hours)
+                else if(alarm.Time.Hours == actualAlarms[i].Time.Hours) 
                 {
-                    if (actualAlarms[i].Time.Minutes < al.Time.Minutes)
+                    if (alarm.Time.Minutes > actualAlarms[i].Time.Minutes)
                     {
-                        al = actualAlarms[i];
+                        alarm = actualAlarms[i];
                     }
-                    else if (actualAlarms[i].Time.Minutes == al.Time.Minutes)
+                    else if (alarm.Time.Minutes == actualAlarms[i].Time.Minutes)
                     {
-                        if (actualAlarms[i].Time.Seconds < al.Time.Seconds)
+                        if (alarm.Time.Seconds == actualAlarms[i].Time.Seconds)
                         {
-                            al = actualAlarms[i];
+                            alarm = actualAlarms[i];
                         }
                     }
                 }
             }
-            return al;
+            return alarm;
         }
         private void btnHideControls_Click(object sender, EventArgs e)
         {
@@ -264,8 +269,6 @@ namespace Clock
             else FreeConsole();
         }
         [DllImport("kernel32.dll")]
-        //Прописывая структуру [DllImport("kernel32.dll")] и далее через static extern void мы прописываем какую функцию
-        //мы экспортируем из внутренней kernel.dll библиотеки.
         public static extern void AllocConsole();
         [DllImport("kernel32.dll")]
         public static extern void FreeConsole();

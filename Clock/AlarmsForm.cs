@@ -26,10 +26,15 @@ namespace Clock
                     Screen.PrimaryScreen.Bounds.Height - this.Height - 560
 
                 );
+            readSettings();
+            //alarm = new AlarmDialog();
+        }
+        private void readSettings()
+        {
             IniFile ini = new IniFile(@System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\..\\..\\" + "Alarms.ini");
             listBoxAlarms.Items.Clear();
             int k = 0;
-            while (ini.KeyExists("year","Alarm " + k.ToString()))
+            while (ini.KeyExists("year", "Alarm " + k.ToString()))
             {
                 Alarm al = new Alarm();
                 al.Time = new TimeSpan(Int32.Parse(ini.Read("hours", "Alarm " + k.ToString())), Int32.Parse(ini.Read("minutes", "Alarm " + k.ToString())), Int32.Parse(ini.Read("seconds", "Alarm " + k.ToString())));
@@ -40,9 +45,7 @@ namespace Clock
                 listBoxAlarms.Items.Add(al);
                 k = k + 1;
             }
-            //alarm = new AlarmDialog();
         }
-
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             AlarmDialog alarm = new AlarmDialog();
@@ -51,20 +54,6 @@ namespace Clock
                 listBoxAlarms.Items.Add(new Alarm(alarm.Alarm));
             }
         }
-        /*public void SaveSettingsAlarms()
-        { 
-            DirectoryInfo directory = new DirectoryInfo(Application.ExecutablePath);
-            DirectoryInfo currentDir = directory.Parent.Parent.Parent;
-            if (currentDir != null && currentDir.Exists)
-            {
-                Directory.SetCurrentDirectory(currentDir.FullName);
-                StreamWriter writer = new StreamWriter("Alarms.ini");
-                writer.WriteLine(this.Location.X);
-                writer.WriteLine(this.Location.Y);
-                //writer.WriteLine(listBoxAlarms.SelectedItem.ToString());
-                writer.Close();
-            }
-        }*/
         public void SaveSettingsAlarm()
         {
             IniFile ini = new IniFile(@System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\..\\..\\" + "Alarms.ini");
@@ -77,7 +66,7 @@ namespace Clock
                 ini.Write("hours", al.Time.Hours.ToString(), "Alarm " + i.ToString());
                 ini.Write("minutes", al.Time.Minutes.ToString(), "Alarm " + i.ToString());
                 ini.Write("seconds", al.Time.Seconds.ToString(), "Alarm " + i.ToString());
-                ini.Write("filename", al.Filename, "Alarm " + i.ToString());
+                ini.Write("filename", al.Filename.ToString(), "Alarm " + i.ToString());
             }
         }
         private void listBoxAlarms_MouseDoubleClick(object sender, MouseEventArgs e)
