@@ -91,13 +91,10 @@ namespace Clock
                 tsmiShowDate.Checked = bool.Parse(reader.ReadLine());
                 tsmiShowWeekday.Checked = bool.Parse(reader.ReadLine());
                 tsmiAutoStart.Checked = bool.Parse(reader.ReadLine());
-
                 labelTime.BackColor = backgroundColorDialog.Color = Color.FromArgb(Convert.ToInt32(reader.ReadLine()));
                 labelTime.ForeColor = foregroundColorDialog.Color = Color.FromArgb(Convert.ToInt32(reader.ReadLine()));
-
                 fontDialog = new FontDialog(reader.ReadLine(), reader.ReadLine());
                 labelTime.Font = fontDialog.Font;
-
                 reader.Close();
             }
             catch (Exception ex) 
@@ -134,11 +131,14 @@ namespace Clock
         Alarm FindNextAlarm()
         {
             Alarm[] actualAlarms = alarms.List.Items.Cast<Alarm>().Where(a => a.Time > DateTime.Now.TimeOfDay).ToArray();
+            //ошибка при чтении файла (when using StreamReader): System.NullReferenceException: 'Object reference not set
+            //to an instance of an object.'
+            //Описание ошибки: хотя бы один из объектов в цепочке вызовов равен null.
             if (actualAlarms.Length == 0) 
             {
                 return null;
             }
-            //Решена ошибка с actualAlarms.min - была ошибка связана с IComparable<Alarm>, LINQ не имеет собственный 
+            //Решена ошибка с actualAlarms.min() - была ошибка связана с IComparable<Alarm>, LINQ не имеет собственный 
             //функциии сравнения
             Alarm alarm = actualAlarms[0];
             for (int i = 0; i < actualAlarms.Length; ++i) 
@@ -254,7 +254,7 @@ namespace Clock
         private void tsmiAlarms_Click(object sender, EventArgs e)
         {
             alarms.ShowDialog();
-            alarms.SaveSettingsAlarms();
+            alarms.SaveSettingsAlarm();
         }
 
         private void tsmiShowConsole_CheckedChanged(object sender, EventArgs e)

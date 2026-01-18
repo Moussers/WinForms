@@ -9,7 +9,7 @@ namespace Clock
 {
     public partial class AlarmsForm : Form
     {
-        //AlarmDialog alarm;
+        private int numberAlarms { get; set; }
         public ListBox List { get => listBoxAlarms; }
         public AlarmsForm()
         {
@@ -22,11 +22,53 @@ namespace Clock
 
                 );
             readSettings();
-            //alarm = new AlarmDialog();
         }
         private void readSettingsAlarmList()
         {
-            
+            DirectoryInfo directory = new DirectoryInfo($"{Application.ExecutablePath}");
+            DirectoryInfo currentDir = directory.Parent.Parent.Parent;
+            if (currentDir != null && currentDir.Exists)
+            {
+                Directory.SetCurrentDirectory(currentDir.FullName);
+                try
+                {
+                    Alarm alarm = new Alarm();
+                    StreamReader reader = new StreamReader("SettingsAlarmList.ini");
+                    bool successRead = int.TryParse(reader.ReadLine(), out int alarms);
+                    if(successRead)
+                    {
+                        numberAlarms = alarms;
+                    }
+                    for (int i = 0; i < numberAlarms; ++i)
+                    {
+                        if (
+                            int.TryParse(reader.ReadLine(), out int hours) &&
+                            int.TryParse(reader.ReadLine(), out int minutes) &&
+                            int.TryParse(reader.ReadLine(), out int seconds)
+                            )
+                        {
+                            alarm.Time = new TimeSpan(hours, minutes, seconds);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Ошибка чтения данных из файла", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            break;
+                        }
+                        //    if (int.TryParse(reader.ReadLine(), out int year) &&
+                        //        int.TryParse(reader.ReadLine(), out int month) &&
+                        //        int.TryParse(reader.ReadLine(),out int day)
+                        //        )
+                        //    {
+                        //        alarm.Date = new DateTime(year, month, day);
+                        //    }
+                        //    listBoxAlarms.Items.Add(alarm);    
+                    }
+                    }
+                catch (Exception ex) 
+                {
+                    MessageBox.Show("File settings not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
         }
         private void readSettings()
         {
@@ -75,17 +117,23 @@ namespace Clock
             if(currentDir != null && currentDir.Exists)
             {
                 Directory.SetCurrentDirectory(currentDir.FullName);
-                StreamWriter writer = new StreamWriter("SettingAlarmList.ini");
-                for(int i = 0; i < listBoxAlarms.Items.Count; ++i)
+                StreamWriter writer = new StreamWriter("SettingsAlarmList.ini");
+                numberAlarms = listBoxAlarms.Items.Count;
+                writer.WriteLine(numberAlarms);
+                for(int i = 0; i < numberAlarms; ++i)
                 {
                     Alarm alarm = listBoxAlarms.Items[i] as Alarm;
-                    writer.WriteLine(alarm.Date.Year.ToString());
-                    writer.WriteLine(alarm.Date.Month.ToString());
-                    writer.WriteLine(alarm.Date.Day.ToString());
-                    writer.WriteLine(alarm.Time.Hours.ToString());
-                    writer.WriteLine(alarm.Time.Minutes.ToString());
-                    writer.WriteLine(alarm.Time.Seconds.ToString());
-                    writer.WriteLine(alarm.Filename.ToString());
+                    if (alarm != null)
+                    {
+                        writer.WriteLine(alarm.Date.Year.ToString());
+                        writer.WriteLine(alarm.Date.Month.ToString());
+                        writer.WriteLine(alarm.Date.Day.ToString());
+                        writer.WriteLine(alarm.Date.Day.ToString());
+                        writer.WriteLine(alarm.Time.Hours.ToString());
+                        writer.WriteLine(alarm.Time.Minutes.ToString());
+                        writer.WriteLine(alarm.Time.Seconds.ToString());
+                        writer.WriteLine(alarm.Filename.ToString());
+                    }
                 }
                 writer.Close();
             }
