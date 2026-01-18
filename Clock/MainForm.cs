@@ -140,7 +140,30 @@ namespace Clock
         Alarm FindNextAlarm()
         {
             Alarm[] actualAlarms = alarms.List.Items.Cast<Alarm>().Where(a => a.Time > DateTime.Now.TimeOfDay).ToArray();
-            return actualAlarms.Min();
+            if (actualAlarms.Length == 0 ) return null;
+            Alarm al = actualAlarms[0];
+            for (int i = 0; i < actualAlarms.Length; ++i)
+            {
+                if (actualAlarms[i].Time.Hours < al.Time.Hours)
+                {
+                    al = actualAlarms[i];
+                }
+                else if (actualAlarms[i].Time.Hours == al.Time.Hours)
+                {
+                    if (actualAlarms[i].Time.Minutes < al.Time.Minutes)
+                    {
+                        al = actualAlarms[i];
+                    }
+                    else if (actualAlarms[i].Time.Minutes == al.Time.Minutes)
+                    {
+                        if (actualAlarms[i].Time.Seconds < al.Time.Seconds)
+                        {
+                            al = actualAlarms[i];
+                        }
+                    }
+                }
+            }
+            return al;
         }
         private void btnHideControls_Click(object sender, EventArgs e)
         {
@@ -226,12 +249,13 @@ namespace Clock
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             SaveSettings();
-            alarmForm.SaveSettingsAlarms();
+            alarmForm.SaveSettingsAlarm();
         }
 
         private void tsmiAlarms_Click(object sender, EventArgs e)
         {
             alarms.ShowDialog();
+            alarms.SaveSettingsAlarm();
         }
 
         private void tsmiShowConsole_CheckedChanged(object sender, EventArgs e)
@@ -240,6 +264,8 @@ namespace Clock
             else FreeConsole();
         }
         [DllImport("kernel32.dll")]
+        //Прописывая структуру [DllImport("kernel32.dll")] и далее через static extern void мы прописываем какую функцию
+        //мы экспортируем из внутренней kernel.dll библиотеки.
         public static extern void AllocConsole();
         [DllImport("kernel32.dll")]
         public static extern void FreeConsole();
