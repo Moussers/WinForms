@@ -113,7 +113,7 @@ namespace Clock
             Alarm.Date = checkBoxUseDate.Checked ? dtpDate.Value : DateTime.MaxValue;
             Alarm.Time = dtpTime.Value.TimeOfDay;
             Alarm.Days = new Week(GetDyasMask());
-            //Alarm.Days = new Week(checkBoxUseDate.Checked ? (byte)0 : GetDyasMask());
+            if (Alarm.Days.GetMask() == 0) Alarm.Days = new Week(127);
             Alarm.Filename = labelFilename.Text;
             
         }

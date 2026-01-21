@@ -49,9 +49,6 @@ namespace Clock
             -----------------------------------------------------
              */
         }
-        public byte GetDays()
-        {
-            return days;
-        }
+        public byte GetMask() => days;
     }
 }
