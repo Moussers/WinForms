@@ -4,13 +4,11 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Win32;
 using System.IO;
 using System.Runtime.InteropServices;
+using AxWMPLib;
 
 namespace Clock
 {
@@ -38,7 +36,10 @@ namespace Clock
             backgroundColorDialog = new ColorDialog();
             alarms = new AlarmsForm();
             alarm = null;
+            axWindowsMediaPlayer.Visible = false;
             LoadSettings();
+            AllocConsole();
+            Console.WriteLine(axWindowsMediaPlayer.Visible);
         }
         void SetVisibility(bool visible) 
         {
@@ -136,9 +137,24 @@ namespace Clock
                 && alarm.Time.Minutes == DateTime.Now.Minute
                 && alarm.Time.Seconds == DateTime.Now.Second
                 )
-                MessageBox.Show(alarm.ToString());
+                PlayAlarm();
+                //MessageBox.Show(alarm.ToString());
             if(DateTime.Now.Second % 5 == 0) alarm = FindNextAlarm();
             notifyIcon.Text = labelTime.Text;
+        }
+        void SetPlayerInvisible(object sender, AxWMPLib._WMPOCXEvents_PlayStateChangeEvent e)
+        {
+            if (axWindowsMediaPlayer.playState == WMPLib.WMPPlayState.wmppsMediaEnded ||
+                axWindowsMediaPlayer.playState == WMPLib.WMPPlayState.wmppsStopped
+                )
+                axWindowsMediaPlayer.Visible = false;
+        }
+        void PlayAlarm()
+        {
+            axWindowsMediaPlayer.URL = alarm.Filename;
+            axWindowsMediaPlayer.settings.volume = 100;
+            axWindowsMediaPlayer.Ctlcontrols.play();
+            axWindowsMediaPlayer.Visible = true;
         }
         bool CompareDates(DateTime date1, DateTime date2)
         {
